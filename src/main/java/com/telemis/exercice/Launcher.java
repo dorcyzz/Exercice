@@ -1,8 +1,10 @@
 package com.telemis.exercice;
 
-import java.util.Random;
-import org.apache.log4j.Logger;
 import com.telemis.exercice.game.Joueur;
+import com.telemis.exercice.score.ScoreManager;
+import org.apache.log4j.Logger;
+
+import java.util.Random;
 
 /**
  * Created by sebastien.vandamme on 18/09/2014.
@@ -35,7 +37,61 @@ public class Launcher {
 				joueur3.lancer(genererNombreQuillesAbattues(joueur3.getFrameCourante().getQuilleDebout()));
 			}
 		}
-	}
+
+        ScoreManager.calculer(joueur1.getFrames());
+        ScoreManager.calculer(joueur2.getFrames());
+        ScoreManager.calculer(joueur3.getFrames());
+
+//        joueur1.initialiseNouvelleFrame();
+//        joueur1.lancer(8);
+//        joueur1.lancer(1);
+//        joueur1.lancer(1);
+//
+//        joueur1.initialiseNouvelleFrame();
+//        joueur1.lancer(8);
+//        joueur1.lancer(7);
+//
+//        joueur1.initialiseNouvelleFrame();
+//        joueur1.lancer(1);
+//        joueur1.lancer(2);
+//        joueur1.lancer(1);
+//
+//        joueur1.initialiseNouvelleFrame();
+//        joueur1.lancer(15);
+//
+//        joueur1.initialiseNouvelleFrame();
+//        joueur1.lancer(1);
+//        joueur1.lancer(2);
+//        joueur1.lancer(1);
+//
+//        ScoreManager.calculer(joueur1.getFrames());
+//
+//        joueur2.initialiseNouvelleFrame();
+//        joueur2.lancer(15);
+//
+//        joueur2.initialiseNouvelleFrame();
+//        joueur2.lancer(8);
+//        joueur2.lancer(1);
+//        joueur2.lancer(2);
+//
+//        joueur2.initialiseNouvelleFrame();
+//        joueur2.lancer(1);
+//        joueur2.lancer(2);
+//        joueur2.lancer(12);
+//
+//        joueur2.initialiseNouvelleFrame();
+//        joueur2.lancer(6);
+//        joueur2.lancer(4);
+//        joueur2.lancer(1);
+//
+//        joueur2.initialiseNouvelleFrame();
+//        joueur2.lancer(15);
+//        joueur2.lancer(8);
+//        joueur2.lancer(2);
+//        joueur2.lancer(3);
+//
+//        ScoreManager.calculer(joueur2.getFrames());
+    }
 
 	private static int genererNombreQuillesAbattues(int borneSuperieure) {
 		return random.nextInt(borneSuperieure);

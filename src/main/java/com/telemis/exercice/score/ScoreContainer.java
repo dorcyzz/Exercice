@@ -1,7 +1,5 @@
 package com.telemis.exercice.score;
 
-import com.telemis.exercice.game.Frame;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +10,11 @@ public class ScoreContainer {
 
     private final int frameNumber;
 
-    private final List<Integer> lancersScores =  new ArrayList<>();
+    private final List<String> lancersScores = new ArrayList<>();
 
     private int frameScore;
+
+    private int totalScore;
 
     public ScoreContainer(final int frameNumber) {
         this.frameNumber = frameNumber;
@@ -24,7 +24,7 @@ public class ScoreContainer {
         return frameNumber;
     }
 
-    public List<Integer> getLancersScores() {
+    public List<String> getLancersScores() {
         return lancersScores;
     }
 
@@ -34,5 +34,13 @@ public class ScoreContainer {
 
     public void setFrameScore(int frameScore) {
         this.frameScore = frameScore;
+    }
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
     }
 }
