@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by sebastien.vandamme on 18/09/2014.
+ * Created by sebastien.vandamme@gmail.com on 18/09/2014.
  */
 public class Frame {
 

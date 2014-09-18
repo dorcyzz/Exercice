@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by sebastien.vandamme on 17/09/2014.
+ * Created by sebastien.vandamme@gmail.com on 18/09/2014.
  */
 public class ScoreManager {
 

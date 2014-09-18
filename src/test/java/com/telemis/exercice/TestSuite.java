@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * Created by sebastien.vandamme on 18/09/2014.
+ * Created by sebastien.vandamme@gmail.com on 18/09/2014.
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

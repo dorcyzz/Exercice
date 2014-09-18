@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import java.util.Random;
 
 /**
- * Created by sebastien.vandamme on 18/09/2014.
+ * Created by sebastien.vandamme@gmail.com on 18/09/2014.
  */
 public class Launcher {
 	private static final Logger LOGGER = Logger.getLogger(Launcher.class);

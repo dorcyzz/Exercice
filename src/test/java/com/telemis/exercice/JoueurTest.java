@@ -1,15 +1,17 @@
 package com.telemis.exercice;
 
-import java.util.List;
-import org.junit.Before;
-import org.junit.Test;
 import com.telemis.exercice.game.Frame;
 import com.telemis.exercice.game.Joueur;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
+import org.junit.Before;
+import org.junit.Test;
 
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+/**
+ * Created by sebastien.vandamme@gmail.com on 18/09/2014.
+ */
 public class JoueurTest {
 
 	private Joueur joueur;

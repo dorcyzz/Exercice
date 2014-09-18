@@ -1,7 +1,7 @@
 package com.telemis.exercice.game;
 
 /**
- * Created by sebastien.vandamme on 18/09/2014.
+ * Created by sebastien.vandamme@gmail.com on 18/09/2014.
  */
 public class Lancer {
 	private final int quilleAbattue;

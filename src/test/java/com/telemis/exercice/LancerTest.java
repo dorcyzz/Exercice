@@ -1,9 +1,13 @@
 package com.telemis.exercice;
 
-import org.junit.Test;
 import com.telemis.exercice.game.Lancer;
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Created by sebastien.vandamme@gmail.com on 18/09/2014.
+ */
 public class LancerTest {
 
 	@Test(expected = IllegalStateException.class)

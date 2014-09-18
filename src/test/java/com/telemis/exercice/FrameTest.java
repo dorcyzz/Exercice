@@ -7,6 +7,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Created by sebastien.vandamme@gmail.com on 18/09/2014.
+ */
 public class FrameTest {
 
     private Frame frame;
