@@ -10,7 +10,6 @@ import java.util.List;
  * Created by sebastien.vandamme@gmail.com on 18/09/2014.
  */
 public class Joueur {
-
 	private static final Logger LOGGER = Logger.getLogger(Joueur.class);
 
     private final String nom;
@@ -45,8 +44,8 @@ public class Joueur {
 	}
 
 	/**
-	 * donne le r�sultat du lancer suivant pour ce joueur
-	 * 
+     * donne le résultat du lancer suivant pour ce joueur
+     *
 	 * @param quillesAbattues donne le nombre de quilles abattues par ce lancer
 	 */
 	public void lancer(int quillesAbattues) {

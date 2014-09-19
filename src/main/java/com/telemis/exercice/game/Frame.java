@@ -10,21 +10,19 @@ import java.util.List;
  * Created by sebastien.vandamme@gmail.com on 18/09/2014.
  */
 public class Frame {
-
-	public static final int NOMBRE_TOTAL_QUILLES = 15;
+    public static final int NOMBRE_TOTAL_QUILLES = 15;
     private int quilleDebout = NOMBRE_TOTAL_QUILLES;
     private static final Logger LOGGER = Logger.getLogger(Frame.class);
     private final List<Lancer> lancers = new LinkedList<>();
 
-	// private int score = 0;
-	private boolean spare = false;
+    private boolean spare = false;
 
-	private boolean strike = false;
+    private boolean strike = false;
 
-	public Frame() {
-		super();
+    public Frame() {
+        super();
 
-	}
+    }
 
     //TODO 4 lancers si derniere frame
     public void addLancer(Lancer lancer) {
@@ -32,53 +30,41 @@ public class Frame {
             throw new IllegalStateException("Nombre de lancer maximum (3) déjà atteint pour le joueur");
         }
 
-		this.lancers.add(lancer);
+        this.lancers.add(lancer);
 
-		this.quilleDebout -= lancer.getQuilleAbattue();
+        this.quilleDebout -= lancer.getQuilleAbattue();
 
-		if (this.quilleDebout < 0) {
-			this.quilleDebout = 0;
-		}
+        if (this.quilleDebout < 0) {
+            this.quilleDebout = 0;
+        }
 
-		if (this.quilleDebout == 0) {
-			if (lancers.size() == 1) {
-				strike = true;
-			} else {
-				spare = true;
-			}
-		}
+        if (this.quilleDebout == 0) {
+            if (lancers.size() == 1) {
+                strike = true;
+            } else {
+                spare = true;
+            }
+        }
+    }
 
-		// this.score = calculerScore();
-	}
+    public List<Lancer> getLancers() {
+        return Collections.unmodifiableList(this.lancers);
+    }
 
-	// public int calculerScore() {
-	// int totalScore = 0;
-	//
-	// for (Lancer lancer : this.lancers) {
-	// totalScore += lancer.getQuilleAbattue();
-	// }
-	//
-	// return totalScore;
-	// }
+    public int getQuilleDebout() {
+        return this.quilleDebout;
+    }
 
-	public List<Lancer> getLancers() {
-		return Collections.unmodifiableList(this.lancers);
-	}
+    public boolean isSpare() {
+        return spare;
+    }
 
-	public int getQuilleDebout() {
-		return this.quilleDebout;
-	}
+    public boolean isStrike() {
+        return strike;
+    }
 
-	public boolean isSpare() {
-		return spare;
-	}
-
-	public boolean isStrike() {
-		return strike;
-	}
-
-	@Override
-	public String toString() {
-		return "Frame{" + "lancers=" + lancers + ", quilleDebout=" + quilleDebout + ", spare=" + spare + ", strike=" + strike + '}';
-	}
+    @Override
+    public String toString() {
+        return "Frame{" + "lancers=" + lancers + ", quilleDebout=" + quilleDebout + ", spare=" + spare + ", strike=" + strike + '}';
+    }
 }
