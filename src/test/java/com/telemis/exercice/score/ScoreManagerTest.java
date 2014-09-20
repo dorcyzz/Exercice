@@ -1,6 +1,6 @@
 package com.telemis.exercice.score;
 
-import com.telemis.exercice.game.Joueur;
+import com.telemis.exercice.game.Player;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
@@ -13,31 +13,31 @@ public class ScoreManagerTest {
 
     @Test
     public void testCalculerScenario1() throws Exception {
-        Joueur joueur1 = new Joueur("Joueur 1");
+        Player player1 = new Player("Joueur 1");
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(8);
-        joueur1.lancer(1);
-        joueur1.lancer(1);
+        player1.initializeNewFrame();
+        player1.lancer(8);
+        player1.lancer(1);
+        player1.lancer(1);
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(8);
-        joueur1.lancer(7);
+        player1.initializeNewFrame();
+        player1.lancer(8);
+        player1.lancer(7);
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(1);
-        joueur1.lancer(2);
-        joueur1.lancer(1);
+        player1.initializeNewFrame();
+        player1.lancer(1);
+        player1.lancer(2);
+        player1.lancer(1);
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(15);
+        player1.initializeNewFrame();
+        player1.lancer(15);
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(1);
-        joueur1.lancer(2);
-        joueur1.lancer(1);
+        player1.initializeNewFrame();
+        player1.lancer(1);
+        player1.lancer(2);
+        player1.lancer(1);
 
-        List<ScoreContainer> scoreJoueur1 = ScoreManager.calculer(joueur1.getFrames());
+        List<ScoreContainer> scoreJoueur1 = ScoreManager.calculer(player1.getFrames());
 
         assertNotNull(scoreJoueur1);
         assertEquals(5, scoreJoueur1.size());
@@ -105,33 +105,33 @@ public class ScoreManagerTest {
 
     @Test
     public void testCalculerScenario2() throws Exception {
-        Joueur joueur1 = new Joueur("Joueur 1");
+        Player player1 = new Player("Joueur 1");
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(15);
+        player1.initializeNewFrame();
+        player1.lancer(15);
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(8);
-        joueur1.lancer(1);
-        joueur1.lancer(2);
+        player1.initializeNewFrame();
+        player1.lancer(8);
+        player1.lancer(1);
+        player1.lancer(2);
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(1);
-        joueur1.lancer(2);
-        joueur1.lancer(12);
+        player1.initializeNewFrame();
+        player1.lancer(1);
+        player1.lancer(2);
+        player1.lancer(12);
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(6);
-        joueur1.lancer(4);
-        joueur1.lancer(1);
+        player1.initializeNewFrame();
+        player1.lancer(6);
+        player1.lancer(4);
+        player1.lancer(1);
 
-        joueur1.initialiseNouvelleFrame();
-        joueur1.lancer(15);
-        joueur1.lancer(8);
-        joueur1.lancer(2);
-        joueur1.lancer(3);
+        player1.initializeNewFrame();
+        player1.lancer(15);
+        player1.lancer(8);
+        player1.lancer(2);
+        player1.lancer(3);
 
-        List<ScoreContainer> scoreJoueur1 = ScoreManager.calculer(joueur1.getFrames());
+        List<ScoreContainer> scoreJoueur1 = ScoreManager.calculer(player1.getFrames());
 
         assertNotNull(scoreJoueur1);
         assertEquals(5, scoreJoueur1.size());

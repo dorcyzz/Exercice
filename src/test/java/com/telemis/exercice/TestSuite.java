@@ -10,7 +10,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         FrameTest.class,
-        JoueurTest.class,
+        PlayerTest.class,
         LancerTest.class,
         ScoreManagerTest.class
 })

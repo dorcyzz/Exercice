@@ -24,30 +24,27 @@ public class StrikeScoreCalculator implements ScoreCalculator {
     }
 
     @Override
-    public ScoreContainer calculer(List<Frame> frames, int currentTotalScore, int framePosition) {
+    public ScoreContainer calculate(List<Frame> frames, int currentTotalScore, int framePosition) {
         ScoreContainer container = new ScoreContainer(framePosition + 1);
         Frame frame = frames.get(framePosition);
-        int frameScore = 0;
+
+        int frameScore = frame.getLancers().get(0).getFallenQuille();
+        container.getLancersScores().add(STRIKE_SYMBOL);
 
         if (framePosition == 4) {
-            container.getLancersScores().add(STRIKE_SYMBOL);
-            frameScore += 15;
-
             for (int i = 1; i < 4; ++i) {
-                final int quilleAbattue = frame.getLancers().get(i).getQuilleAbattue();
-                frameScore += quilleAbattue;
-                container.getLancersScores().add(Integer.toString(quilleAbattue));
+                final int fallenQuille = frame.getLancers().get(i).getFallenQuille();
+                frameScore += fallenQuille;
+                container.getLancersScores().add(Integer.toString(fallenQuille));
             }
         } else {
-            frameScore += frame.getLancers().get(0).getQuilleAbattue();
-            container.getLancersScores().add(STRIKE_SYMBOL);
             container.getLancersScores().add(StringUtils.EMPTY);
             container.getLancersScores().add(StringUtils.EMPTY);
 
             List<Lancer> nextFrameLancers = frames.get(framePosition + 1).getLancers();
 
             for (int i = 0; i < 3; ++i) {
-                frameScore += nextFrameLancers.get(i).getQuilleAbattue();
+                frameScore += nextFrameLancers.get(i).getFallenQuille();
             }
         }
 

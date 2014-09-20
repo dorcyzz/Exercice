@@ -32,13 +32,13 @@ public class ScoreManager {
 
             if (frame.isStrike()) {
                 ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.STRIKE);
-                container = scoreCalculator.calculer(frames, totalScore, framePosition);
+                container = scoreCalculator.calculate(frames, totalScore, framePosition);
             } else if (frame.isSpare()) {
                 ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.SPARE);
-                container = scoreCalculator.calculer(frames, totalScore, framePosition);
+                container = scoreCalculator.calculate(frames, totalScore, framePosition);
             } else {
                 ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.NORMAL);
-                container = scoreCalculator.calculer(frames, totalScore, framePosition);
+                container = scoreCalculator.calculate(frames, totalScore, framePosition);
             }
 
             totalScore += container.getFrameScore();

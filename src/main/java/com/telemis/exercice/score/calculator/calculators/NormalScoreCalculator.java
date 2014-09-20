@@ -22,13 +22,13 @@ public class NormalScoreCalculator implements ScoreCalculator {
     }
 
     @Override
-    public ScoreContainer calculer(List<Frame> frames, int currentTotalScore, int framePosition) {
+    public ScoreContainer calculate(List<Frame> frames, int currentTotalScore, int framePosition) {
         ScoreContainer container = new ScoreContainer(framePosition + 1);
         Frame frame = frames.get(framePosition);
         int frameScore = 0;
 
         for (Lancer lancer : frame.getLancers()) {
-            final int quilleAbattue = lancer.getQuilleAbattue();
+            final int quilleAbattue = lancer.getFallenQuille();
             container.getLancersScores().add(Integer.toString(quilleAbattue));
             frameScore += quilleAbattue;
         }

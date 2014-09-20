@@ -21,13 +21,13 @@ public class FrameTest {
 
     @Test
     public void testAddLancerNormal() throws Exception {
-        assertEquals(Frame.NOMBRE_TOTAL_QUILLES, this.frame.getQuilleDebout());
+        assertEquals(Frame.TOTAL_NUMBER_OF_QUILLES, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(8));
-        assertEquals(7, this.frame.getQuilleDebout());
+        assertEquals(7, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(0));
-        assertEquals(7, this.frame.getQuilleDebout());
+        assertEquals(7, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(1));
-        assertEquals(6, this.frame.getQuilleDebout());
+        assertEquals(6, this.frame.getStandingQuilles());
     }
 
     @Test(expected = IllegalStateException.class)
@@ -38,45 +38,45 @@ public class FrameTest {
 
     @Test
     public void testGetQuilleDebout() throws Exception {
-        assertEquals(Frame.NOMBRE_TOTAL_QUILLES, this.frame.getQuilleDebout());
+        assertEquals(Frame.TOTAL_NUMBER_OF_QUILLES, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(8));
-        assertEquals(7, this.frame.getQuilleDebout());
+        assertEquals(7, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(5));
-        assertEquals(2, this.frame.getQuilleDebout());
+        assertEquals(2, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(8));
-        assertEquals(0, this.frame.getQuilleDebout());
+        assertEquals(0, this.frame.getStandingQuilles());
     }
 
     @Test
     public void testIsSpareWithTwoLaunch() throws Exception {
         assertFalse(this.frame.isSpare());
-        assertEquals(Frame.NOMBRE_TOTAL_QUILLES, this.frame.getQuilleDebout());
+        assertEquals(Frame.TOTAL_NUMBER_OF_QUILLES, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(8));
-        assertEquals(7, this.frame.getQuilleDebout());
+        assertEquals(7, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(7));
-        assertEquals(0, this.frame.getQuilleDebout());
+        assertEquals(0, this.frame.getStandingQuilles());
         assertTrue(this.frame.isSpare());
     }
 
     @Test
     public void testIsSpareWithThreeLaunch() throws Exception {
         assertFalse(this.frame.isSpare());
-        assertEquals(Frame.NOMBRE_TOTAL_QUILLES, this.frame.getQuilleDebout());
+        assertEquals(Frame.TOTAL_NUMBER_OF_QUILLES, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(8));
-        assertEquals(7, this.frame.getQuilleDebout());
+        assertEquals(7, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(6));
-        assertEquals(1, this.frame.getQuilleDebout());
+        assertEquals(1, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(1));
-        assertEquals(0, this.frame.getQuilleDebout());
+        assertEquals(0, this.frame.getStandingQuilles());
         assertTrue(this.frame.isSpare());
     }
 
     @Test
     public void testIsStrike() throws Exception {
         assertFalse(this.frame.isStrike());
-        assertEquals(Frame.NOMBRE_TOTAL_QUILLES, this.frame.getQuilleDebout());
+        assertEquals(Frame.TOTAL_NUMBER_OF_QUILLES, this.frame.getStandingQuilles());
         this.frame.addLancer(new Lancer(15));
-        assertEquals(0, this.frame.getQuilleDebout());
+        assertEquals(0, this.frame.getStandingQuilles());
         assertTrue(this.frame.isStrike());
     }
 }

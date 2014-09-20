@@ -27,9 +27,9 @@ public class SpareScoreCalculator implements ScoreCalculator {
 
     @Override
     //TODO if spare puis strike puis strike ?
-    public ScoreContainer calculer(List<Frame> frames, int currentTotalScore, int framePosition) {
+    public ScoreContainer calculate(List<Frame> frames, int currentTotalScore, int framePosition) {
         ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.NORMAL);
-        ScoreContainer container = scoreCalculator.calculer(frames, 0, framePosition);
+        ScoreContainer container = scoreCalculator.calculate(frames, 0, framePosition);
         int frameScore = container.getFrameScore();
 
         completeSpareRepresentation(container, frames.get(framePosition).getLancers().size());
@@ -37,7 +37,7 @@ public class SpareScoreCalculator implements ScoreCalculator {
         List<Lancer> nextFrameLancers = frames.get(framePosition + 1).getLancers();
 
         for (int i = 0; i < 2; ++i) {
-            final int quilleAbattue = nextFrameLancers.get(i).getQuilleAbattue();
+            final int quilleAbattue = nextFrameLancers.get(i).getFallenQuille();
             frameScore += quilleAbattue;
         }
 

@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface ScoreCalculator {
 
-    public ScoreContainer calculer(List<Frame> frames, int currentTotalScore, int framePosition);
+    public ScoreContainer calculate(List<Frame> frames, int currentTotalScore, int framePosition);
 
 }

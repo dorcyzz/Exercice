@@ -10,8 +10,8 @@ import java.util.List;
  * Created by sebastien.vandamme@gmail.com on 18/09/2014.
  */
 public class Frame {
-    public static final int NOMBRE_TOTAL_QUILLES = 15;
-    private int quilleDebout = NOMBRE_TOTAL_QUILLES;
+    public static final int TOTAL_NUMBER_OF_QUILLES = 15;
+    private int standingQuilles = TOTAL_NUMBER_OF_QUILLES;
     private static final Logger LOGGER = Logger.getLogger(Frame.class);
     private final List<Lancer> lancers = new ArrayList<>();
 
@@ -34,13 +34,13 @@ public class Frame {
 
         this.lancers.add(lancer);
 
-        this.quilleDebout -= lancer.getQuilleAbattue();
+        this.standingQuilles -= lancer.getFallenQuille();
 
-        if (this.quilleDebout < 0) {
-            this.quilleDebout = 0;
+        if (this.standingQuilles < 0) {
+            this.standingQuilles = 0;
         }
 
-        if (this.quilleDebout == 0) {
+        if (this.standingQuilles == 0) {
             if (lancers.size() == 1) {
                 strike = true;
             } else {
@@ -53,8 +53,8 @@ public class Frame {
         return Collections.unmodifiableList(this.lancers);
     }
 
-    public int getQuilleDebout() {
-        return this.quilleDebout;
+    public int getStandingQuilles() {
+        return this.standingQuilles;
     }
 
     public boolean isSpare() {
@@ -71,6 +71,6 @@ public class Frame {
 
     @Override
     public String toString() {
-        return "Frame{" + "lancers=" + lancers + ", quilleDebout=" + quilleDebout + ", spare=" + spare + ", strike=" + strike + '}';
+        return "Frame{" + "lancers=" + lancers + ", standingQuilles=" + standingQuilles + ", spare=" + spare + ", strike=" + strike + '}';
     }
 }
