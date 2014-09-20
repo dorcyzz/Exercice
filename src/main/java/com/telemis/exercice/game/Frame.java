@@ -2,8 +2,8 @@ package com.telemis.exercice.game;
 
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,21 +13,23 @@ public class Frame {
     public static final int NOMBRE_TOTAL_QUILLES = 15;
     private int quilleDebout = NOMBRE_TOTAL_QUILLES;
     private static final Logger LOGGER = Logger.getLogger(Frame.class);
-    private final List<Lancer> lancers = new LinkedList<>();
+    private final List<Lancer> lancers = new ArrayList<>();
 
-    private boolean spare = false;
+    private boolean spare;
 
-    private boolean strike = false;
+    private boolean strike;
 
-    public Frame() {
+    private boolean lastFrame;
+
+    public Frame(boolean lastFrame) {
         super();
 
+        this.lastFrame = lastFrame;
     }
 
-    //TODO 4 lancers si derniere frame
     public void addLancer(Lancer lancer) {
-        if (this.lancers.size() >= 4) {
-            throw new IllegalStateException("Nombre de lancer maximum (3) déjà atteint pour le joueur");
+        if ((this.lastFrame && this.lancers.size() >= 4) || (!this.lastFrame && this.lancers.size() >= 3)) {
+            throw new IllegalStateException("Nombre de lancer maximum déjà atteint pour le joueur (3 ou 4 dans le cas de la dernière frame)");
         }
 
         this.lancers.add(lancer);
@@ -61,6 +63,10 @@ public class Frame {
 
     public boolean isStrike() {
         return strike;
+    }
+
+    public boolean isLastFrame() {
+        return lastFrame;
     }
 
     @Override

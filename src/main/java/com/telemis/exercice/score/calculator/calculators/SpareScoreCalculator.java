@@ -1,0 +1,58 @@
+package com.telemis.exercice.score.calculator.calculators;
+
+import com.telemis.exercice.game.Frame;
+import com.telemis.exercice.game.Lancer;
+import com.telemis.exercice.score.ScoreContainer;
+import com.telemis.exercice.score.calculator.ScoreCalculatorFactory;
+import com.telemis.exercice.score.calculator.enums.ScoreCalculatorType;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
+
+/**
+ * Created by sebastien.vandamme@gmail.com on 20/09/2014.
+ */
+public class SpareScoreCalculator implements ScoreCalculator {
+    public static final String SPARE_SYMBOL = "/";
+
+    private static final SpareScoreCalculator INSTANCE = new SpareScoreCalculator();
+
+    private SpareScoreCalculator() {
+        super();
+    }
+
+    public static SpareScoreCalculator getInstance() {
+        return INSTANCE;
+    }
+
+    @Override
+    //TODO if spare puis strike puis strike ?
+    public ScoreContainer calculer(List<Frame> frames, int currentTotalScore, int framePosition) {
+        ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.NORMAL);
+        ScoreContainer container = scoreCalculator.calculer(frames, 0, framePosition);
+        int frameScore = container.getFrameScore();
+
+        completeSpareRepresentation(container, frames.get(framePosition).getLancers().size());
+
+        List<Lancer> nextFrameLancers = frames.get(framePosition + 1).getLancers();
+
+        for (int i = 0; i < 2; ++i) {
+            final int quilleAbattue = nextFrameLancers.get(i).getQuilleAbattue();
+            frameScore += quilleAbattue;
+        }
+
+        container.setFrameScore(frameScore);
+        container.setTotalScore(currentTotalScore + frameScore);
+
+        return container;
+    }
+
+    private void completeSpareRepresentation(ScoreContainer container, int lancersSize) {
+        container.getLancersScores().set(lancersSize - 1, SPARE_SYMBOL);
+
+        if (container.getLancersScores().size() == 2) {
+            container.getLancersScores().add(StringUtils.EMPTY);
+        }
+    }
+
+}

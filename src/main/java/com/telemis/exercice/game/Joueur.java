@@ -2,8 +2,8 @@ package com.telemis.exercice.game;
 
 import org.apache.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -14,7 +14,7 @@ public class Joueur {
 
     private final String nom;
 
-	private final List<Frame> frames = new LinkedList<>();
+    private final List<Frame> frames = new ArrayList<>();
 
 	public Joueur(String nom) {
 		super();
@@ -39,7 +39,12 @@ public class Joueur {
 			throw new IllegalStateException("Nombre de frames maximum (5) déjà atteint pour le joueur " + nom);
 		}
 
-		this.frames.add(new Frame());
+        if (frames.size() == 4) {
+            this.frames.add(new Frame(true));
+        } else {
+            this.frames.add(new Frame(false));
+        }
+
 		LOGGER.info("Initialise la frame " + getFrameCourante() + " pour le joueur " + nom + ", toutes les quilles sont debout");
 	}
 

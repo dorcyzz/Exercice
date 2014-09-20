@@ -106,14 +106,14 @@ public class JoueurTest {
 	@Test(expected = UnsupportedOperationException.class)
 	public void testGetFramesIsNotModifiableAdd() {
 		List<Frame> frames = this.joueur.getFrames();
-		frames.add(new Frame());
-	}
+        frames.add(new Frame(false));
+    }
 
 	@Test(expected = UnsupportedOperationException.class)
 	public void testGetFramesIsNotModifiableSet() {
 		List<Frame> frames = this.joueur.getFrames();
-		frames.set(1, new Frame());
-	}
+        frames.set(1, new Frame(false));
+    }
 
 	@Test(expected = UnsupportedOperationException.class)
 	public void testGetFramesIsNotModifiableClear() {

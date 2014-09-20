@@ -17,9 +17,9 @@ public class Launcher {
     private static Random random = new Random();
 
     public static void main(String[] args) {
-        Joueur joueur1 = new Joueur("John");
-        Joueur joueur2 = new Joueur("Bob");
-        Joueur joueur3 = new Joueur("Dexter");
+        Joueur joueur1 = new Joueur("Joueur 1");
+        Joueur joueur2 = new Joueur("Joueur 2");
+        Joueur joueur3 = new Joueur("Joueur 3");
 
 //        for (int i = 1; i < 6; ++i) {
 //            LOGGER.info("FRAME " + i);
