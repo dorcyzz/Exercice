@@ -9,9 +9,11 @@ import java.util.List;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 20/09/2014.
+ *
+ * Classe permettant de calculer le calculateStrikeScore d'une frame lors d'un strike.
  */
 public class StrikeScoreCalculator implements ScoreCalculator {
-    public static final String STRIKE_SYMBOL = "X";
+    private static final String STRIKE_SYMBOL = "X";
 
     private static final StrikeScoreCalculator INSTANCE = new StrikeScoreCalculator();
 
@@ -24,33 +26,52 @@ public class StrikeScoreCalculator implements ScoreCalculator {
     }
 
     @Override
+    /**
+     * @see com.telemis.exercice.score.calculator.calculators.ScoreCalculator#calculate(java.util.List, int, int)
+     */
     public ScoreContainer calculate(List<Frame> frames, int currentTotalScore, int framePosition) {
         ScoreContainer container = new ScoreContainer(framePosition + 1);
         Frame frame = frames.get(framePosition);
 
-        int frameScore = frame.getLancers().get(0).getFallenQuille();
+        int frameScore = frame.getLancers().get(0).getFallenQuilles();
         container.getLancersScores().add(STRIKE_SYMBOL);
 
         if (framePosition == 4) {
             for (int i = 1; i < 4; ++i) {
-                final int fallenQuille = frame.getLancers().get(i).getFallenQuille();
+                final int fallenQuille = frame.getLancers().get(i).getFallenQuilles();
                 frameScore += fallenQuille;
                 container.getLancersScores().add(Integer.toString(fallenQuille));
             }
         } else {
+            frameScore += calculateStrikeScore(frames.subList(framePosition + 1, frames.size()));
             container.getLancersScores().add(StringUtils.EMPTY);
             container.getLancersScores().add(StringUtils.EMPTY);
-
-            List<Lancer> nextFrameLancers = frames.get(framePosition + 1).getLancers();
-
-            for (int i = 0; i < 3; ++i) {
-                frameScore += nextFrameLancers.get(i).getFallenQuille();
-            }
         }
 
         container.setFrameScore(frameScore);
         container.setTotalScore(currentTotalScore + container.getFrameScore());
 
         return container;
+    }
+
+    //TODO améliorer
+    private int calculateStrikeScore(List<Frame> frames) {
+        int launch = 0;
+        int strikeScore = 0;
+
+        for (Frame frame : frames) {
+            List<Lancer> lancers = frame.getLancers();
+
+            for (Lancer lancer : lancers) {
+                strikeScore += lancer.getFallenQuilles();
+                ++launch;
+
+                if (launch >= 3) {
+                    return strikeScore;
+                }
+            }
+        }
+
+        return strikeScore;
     }
 }

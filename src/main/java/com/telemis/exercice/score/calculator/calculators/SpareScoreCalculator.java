@@ -11,9 +11,11 @@ import java.util.List;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 20/09/2014.
+ *
+ * Classe permettant de calculer le score d'une frame lors d'un spare.
  */
 public class SpareScoreCalculator implements ScoreCalculator {
-    public static final String SPARE_SYMBOL = "/";
+    private static final String SPARE_SYMBOL = "/";
 
     private static final SpareScoreCalculator INSTANCE = new SpareScoreCalculator();
 
@@ -26,7 +28,9 @@ public class SpareScoreCalculator implements ScoreCalculator {
     }
 
     @Override
-    //TODO if spare puis strike puis strike ?
+    /**
+     * @see com.telemis.exercice.score.calculator.calculators.ScoreCalculator#calculate(java.util.List, int, int)
+     */
     public ScoreContainer calculate(List<Frame> frames, int currentTotalScore, int framePosition) {
         ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.NORMAL);
         ScoreContainer container = scoreCalculator.calculate(frames, 0, framePosition);
@@ -37,7 +41,7 @@ public class SpareScoreCalculator implements ScoreCalculator {
         List<Lancer> nextFrameLancers = frames.get(framePosition + 1).getLancers();
 
         for (int i = 0; i < 2; ++i) {
-            final int quilleAbattue = nextFrameLancers.get(i).getFallenQuille();
+            final int quilleAbattue = nextFrameLancers.get(i).getFallenQuilles();
             frameScore += quilleAbattue;
         }
 

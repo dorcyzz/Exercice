@@ -26,18 +26,19 @@ public class ScoreManager {
 
         int framePosition = 0;
         int totalScore = 0;
+        ScoreCalculator scoreCalculator;
 
         for (Frame frame : frames) {
             ScoreContainer container;
 
             if (frame.isStrike()) {
-                ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.STRIKE);
+                scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.STRIKE);
                 container = scoreCalculator.calculate(frames, totalScore, framePosition);
             } else if (frame.isSpare()) {
-                ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.SPARE);
+                scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.SPARE);
                 container = scoreCalculator.calculate(frames, totalScore, framePosition);
             } else {
-                ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.NORMAL);
+                scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.NORMAL);
                 container = scoreCalculator.calculate(frames, totalScore, framePosition);
             }
 
@@ -50,13 +51,12 @@ public class ScoreManager {
         return scoreHistory;
     }
 
-
-
     public static void displayScore(List<ScoreContainer> scoreHistory) {
         for (ScoreContainer container : scoreHistory) {
             LOGGER.info("Frame " + container.getFrameNumber());
             List<String> lancersScores = container.getLancersScores();
-            LOGGER.info(lancersScores.get(0) + " | " + lancersScores.get(1) + " | " + lancersScores.get(2) + ((lancersScores.size() == 4) ? " | " + lancersScores.get(3) : StringUtils.EMPTY));
+            LOGGER.info(lancersScores.get(0) + " | " + lancersScores.get(1) + " | " + lancersScores.get(2)
+                    + ((lancersScores.size() == 4) ? " | " + lancersScores.get(3) : StringUtils.EMPTY));
             LOGGER.info("Frame score = " + container.getFrameScore() + " (total score = " + container.getTotalScore() + ")");
             LOGGER.info(StringUtils.EMPTY);
         }

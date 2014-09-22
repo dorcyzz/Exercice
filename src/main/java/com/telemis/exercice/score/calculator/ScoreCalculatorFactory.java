@@ -8,8 +8,17 @@ import com.telemis.exercice.score.calculator.enums.ScoreCalculatorType;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 20/09/2014.
+ * <p/>
+ * Classe fournissant une implémentation d'un calculateur de score sur base d'un type.
  */
 public class ScoreCalculatorFactory {
+
+    /**
+     * Méthode fournissant une implémentation d'un calculateur de score sur base d'un type passé en paramètre.
+     *
+     * @param calculatorType le type de calculateur désiré
+     * @return une implémentation d'un calculateur de score
+     */
     public static ScoreCalculator createScoreCalculator(ScoreCalculatorType calculatorType) {
         switch (calculatorType) {
             case NORMAL:

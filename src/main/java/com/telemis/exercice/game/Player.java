@@ -9,8 +9,9 @@ import java.util.List;
 /**
  * Created by sebastien.vandamme@gmail.com on 18/09/2014.
  */
-//TODO javadoc + comment
+// TODO javadoc + comment
 public class Player {
+
     private static final Logger LOGGER = Logger.getLogger(Player.class);
 
     private final String name;
@@ -62,9 +63,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Joueur{" +
-                "name='" + name + '\'' +
-                ", frames=" + frames +
-                '}';
+        return "Joueur{" + "name='" + name + '\'' + ", frames=" + frames + '}';
     }
 }

@@ -18,12 +18,12 @@ public class LancerTest {
     @Test
     public void testCreateLancerZero() throws Exception {
         Lancer lancer = new Lancer(0);
-        assertEquals(0, lancer.getFallenQuille());
+        assertEquals(0, lancer.getFallenQuilles());
     }
 
     @Test
     public void testCreateLancer() throws Exception {
         Lancer lancer = new Lancer(8);
-        assertEquals(8, lancer.getFallenQuille());
+        assertEquals(8, lancer.getFallenQuilles());
     }
 }
