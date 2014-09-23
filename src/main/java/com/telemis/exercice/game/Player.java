@@ -1,5 +1,8 @@
 package com.telemis.exercice.game;
 
+import com.telemis.exercice.game.frame.FourLaunchFrame;
+import com.telemis.exercice.game.frame.Frame;
+import com.telemis.exercice.game.frame.ThreeLaunchFrame;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;

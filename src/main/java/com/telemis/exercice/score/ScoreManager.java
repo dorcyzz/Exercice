@@ -1,9 +1,9 @@
 package com.telemis.exercice.score;
 
-import com.telemis.exercice.game.FourLaunchFrame;
-import com.telemis.exercice.game.Frame;
-import com.telemis.exercice.game.ScoreType;
-import com.telemis.exercice.game.ThreeLaunchFrame;
+import com.telemis.exercice.game.enums.ScoreType;
+import com.telemis.exercice.game.frame.FourLaunchFrame;
+import com.telemis.exercice.game.frame.Frame;
+import com.telemis.exercice.game.frame.ThreeLaunchFrame;
 import com.telemis.exercice.score.calculator.ScoreCalculatorFactory;
 import com.telemis.exercice.score.calculator.calculators.ScoreCalculator;
 import com.telemis.exercice.score.calculator.enums.ScoreCalculatorType;
@@ -37,13 +37,13 @@ public class ScoreManager {
             ScoreContainer container;
 
             if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof ThreeLaunchFrame) {
-                container = calculators.get(ScoreCalculatorType.STRIKE_NORMAL).calculate(frames, framePosition);
+                container = calculators.get(ScoreCalculatorType.STRIKE_NORMAL).calculate(frames, frame);
             } else if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof FourLaunchFrame) {
-                container = calculators.get(ScoreCalculatorType.STRIKE_LAST_FRAME).calculate(frames, framePosition);
+                container = calculators.get(ScoreCalculatorType.STRIKE_LAST_FRAME).calculate(frames, frame);
             } else if (ScoreType.SPARE == frame.getScoreType()) {
-                container = calculators.get(ScoreCalculatorType.SPARE).calculate(frames, framePosition);
+                container = calculators.get(ScoreCalculatorType.SPARE).calculate(frames, frame);
             } else {
-                container = calculators.get(ScoreCalculatorType.NORMAL).calculate(frames, framePosition);
+                container = calculators.get(ScoreCalculatorType.NORMAL).calculate(frames, frame);
             }
 
             scoreHistory.add(container);

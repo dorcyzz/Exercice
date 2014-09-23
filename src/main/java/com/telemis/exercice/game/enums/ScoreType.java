@@ -1,4 +1,4 @@
-package com.telemis.exercice.game;
+package com.telemis.exercice.game.enums;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 23/09/2014.

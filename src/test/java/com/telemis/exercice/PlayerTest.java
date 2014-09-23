@@ -1,8 +1,8 @@
 package com.telemis.exercice;
 
-import com.telemis.exercice.game.Frame;
 import com.telemis.exercice.game.Player;
-import com.telemis.exercice.game.ThreeLaunchFrame;
+import com.telemis.exercice.game.frame.Frame;
+import com.telemis.exercice.game.frame.ThreeLaunchFrame;
 import org.junit.Before;
 import org.junit.Test;
 

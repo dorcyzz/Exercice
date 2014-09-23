@@ -1,9 +1,9 @@
 package com.telemis.exercice;
 
-import com.telemis.exercice.game.FourLaunchFrame;
-import com.telemis.exercice.game.Frame;
 import com.telemis.exercice.game.Lancer;
-import com.telemis.exercice.game.ScoreType;
+import com.telemis.exercice.game.enums.ScoreType;
+import com.telemis.exercice.game.frame.FourLaunchFrame;
+import com.telemis.exercice.game.frame.Frame;
 import org.junit.Before;
 import org.junit.Test;
 

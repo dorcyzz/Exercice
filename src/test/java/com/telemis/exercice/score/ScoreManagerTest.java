@@ -267,8 +267,8 @@ public class ScoreManagerTest {
         assertNotNull(lancersScores);
         assertEquals(4, lancersScores.size());
         assertEquals("X", lancersScores.get(0));
-        assertEquals("15", lancersScores.get(1));
-        assertEquals("15", lancersScores.get(2));
-        assertEquals("15", lancersScores.get(3));
+        assertEquals("X", lancersScores.get(1));
+        assertEquals("X", lancersScores.get(2));
+        assertEquals("X", lancersScores.get(3));
     }
 }

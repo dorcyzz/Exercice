@@ -1,4 +1,7 @@
-package com.telemis.exercice.game;
+package com.telemis.exercice.game.frame;
+
+import com.telemis.exercice.game.Lancer;
+import com.telemis.exercice.game.enums.ScoreType;
 
 import java.util.ArrayList;
 import java.util.Collections;

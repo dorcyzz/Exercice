@@ -1,4 +1,4 @@
-package com.telemis.exercice.game;
+package com.telemis.exercice.game.frame;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 18/09/2014.

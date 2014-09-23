@@ -1,7 +1,7 @@
 package com.telemis.exercice.score.calculator.calculators;
 
-import com.telemis.exercice.game.Frame;
 import com.telemis.exercice.game.Lancer;
+import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.score.ScoreContainer;
 
 import java.util.List;
@@ -25,17 +25,16 @@ public class NormalScoreCalculator implements ScoreCalculator {
 
     @Override
     /**
-     * @see com.telemis.exercice.score.calculator.calculators.ScoreCalculator#calculate(java.util.List, int, int)
+     * @see com.telemis.exercice.score.calculator.calculators.ScoreCalculator#calculate(java.util.List, com.telemis.exercice.game.frame.Frame)
      */
-    public ScoreContainer calculate(List<Frame> frames, int framePosition) {
-        ScoreContainer container = new ScoreContainer(framePosition + 1);
-        Frame frame = frames.get(framePosition);
+    public ScoreContainer calculate(List<Frame> frames, Frame frame) {
+        ScoreContainer container = new ScoreContainer(frames.indexOf(frame) + 1);
         int frameScore = 0;
 
         for (Lancer lancer : frame.getLancers()) {
             final int fallenPins = lancer.getFallenPins();
-            container.getLancersScores().add(Integer.toString(fallenPins));
             frameScore += fallenPins;
+            container.getLancersScores().add(Integer.toString(fallenPins));
         }
 
         container.setFrameScore(frameScore);
