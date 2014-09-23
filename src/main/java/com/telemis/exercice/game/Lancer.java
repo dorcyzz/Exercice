@@ -6,22 +6,22 @@ package com.telemis.exercice.game;
 // TODO javadoc + comment
 public class Lancer {
 
-    private final int fallenQuilles;
+    private final int fallenPins;
 
-    public Lancer(final int fallenQuille) {
-        if (fallenQuille < 0) {
+    public Lancer(final int fallenPins) {
+        if (fallenPins < 0) {
             throw new IllegalStateException("Nombre de quille abattue ne peut être négatif");
         }
 
-        this.fallenQuilles = fallenQuille;
+        this.fallenPins = fallenPins;
     }
 
-    public int getFallenQuilles() {
-        return fallenQuilles;
+    public int getFallenPins() {
+        return fallenPins;
     }
 
     @Override
     public String toString() {
-        return "Lancer{" + "fallenQuilles=" + fallenQuilles + '}';
+        return "Lancer{" + "fallenPins=" + fallenPins + '}';
     }
 }

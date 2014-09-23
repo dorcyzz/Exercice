@@ -28,7 +28,7 @@ public class Player {
         return Collections.unmodifiableList(this.frames);
     }
 
-    public Frame getFrameCourante() {
+    public Frame getCurrentFrame() {
         if (frames.isEmpty()) {
             throw new IllegalStateException("Aucune frame initialisée pour le joueur " + name + ", veillez initialiser une frame");
         }
@@ -37,28 +37,30 @@ public class Player {
     }
 
     public void initializeNewFrame() {
-        if (frames.size() == 5) {
+        int currentNumberOfFrames = frames.size();
+
+        if (currentNumberOfFrames == 5) {
             throw new IllegalStateException("Nombre de frames maximum (5) déjà atteint pour le joueur " + name);
         }
 
-        if (frames.size() == 4) {
-            this.frames.add(new Frame(true));
+        if (currentNumberOfFrames == 4) {
+            this.frames.add(new FourLaunchFrame());
         } else {
-            this.frames.add(new Frame(false));
+            this.frames.add(new ThreeLaunchFrame());
         }
 
-        LOGGER.info("Initialise la frame " + getFrameCourante() + " pour le joueur " + name + ", toutes les quilles sont debout");
+        LOGGER.info("Initialise la frame " + getCurrentFrame() + " pour le joueur " + name + ", toutes les quilles sont debout");
     }
 
     /**
-     * donne le résultat du lancer suivant pour ce joueur
+     * donne le résultat du launch suivant pour ce joueur
      *
-     * @param quillesAbattues donne le nombre de quilles abattues par ce lancer
+     * @param fallenPins donne le nombre de quilles abattues par ce launch
      */
-    public void lancer(int quillesAbattues) {
-        LOGGER.info("Lancé de " + name + " ! Nombre de quilles abattues : " + quillesAbattues);
-        getFrameCourante().addLancer(new Lancer(quillesAbattues));
-        LOGGER.info("Etat de la frame : " + getFrameCourante());
+    public void launch(int fallenPins) {
+        LOGGER.info("Lancé de " + name + " ! Nombre de quilles abattues : " + fallenPins);
+        getCurrentFrame().addLancer(new Lancer(fallenPins));
+        LOGGER.info("Etat de la frame : " + getCurrentFrame());
     }
 
     @Override

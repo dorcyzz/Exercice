@@ -14,8 +14,6 @@ public class ScoreContainer {
 
     private int frameScore;
 
-    private int totalScore;
-
     public ScoreContainer(final int frameNumber) {
         this.frameNumber = frameNumber;
     }
@@ -34,13 +32,5 @@ public class ScoreContainer {
 
     public void setFrameScore(int frameScore) {
         this.frameScore = frameScore;
-    }
-
-    public int getTotalScore() {
-        return totalScore;
-    }
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
     }
 }

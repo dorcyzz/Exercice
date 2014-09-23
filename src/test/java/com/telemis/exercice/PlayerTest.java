@@ -2,6 +2,7 @@ package com.telemis.exercice;
 
 import com.telemis.exercice.game.Frame;
 import com.telemis.exercice.game.Player;
+import com.telemis.exercice.game.ThreeLaunchFrame;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,16 +24,16 @@ public class PlayerTest {
 
     @Test(expected = IllegalStateException.class)
     public void testGetFrameCouranteWithoutInitialisation() throws Exception {
-        this.player.getFrameCourante();
+        this.player.getCurrentFrame();
     }
 
     @Test
     public void testGetFrameCourante() throws Exception {
         this.player.initializeNewFrame();
-        Frame frame1 = this.player.getFrameCourante();
+        Frame frame1 = this.player.getCurrentFrame();
         assertNotNull(frame1);
         this.player.initializeNewFrame();
-        Frame frame2 = this.player.getFrameCourante();
+        Frame frame2 = this.player.getCurrentFrame();
         assertNotNull(frame2);
 
         assertNotEquals(frame1, frame2);
@@ -70,49 +71,49 @@ public class PlayerTest {
 
     @Test(expected = IllegalStateException.class)
     public void testLancerWithoutInitialisation() throws Exception {
-        this.player.lancer(5);
+        this.player.launch(5);
     }
 
     @Test(expected = IllegalStateException.class)
     public void testMoreThanThreeLancer() throws Exception {
         this.player.initializeNewFrame();
-        this.player.lancer(5);
-        this.player.lancer(0);
-        this.player.lancer(8);
-        this.player.lancer(3);
+        this.player.launch(5);
+        this.player.launch(0);
+        this.player.launch(8);
+        this.player.launch(3);
     }
 
     @Test
     public void testLancer() throws Exception {
         this.player.initializeNewFrame();
-        assertEquals(15, this.player.getFrameCourante().getStandingQuilles());
-        this.player.lancer(5);
-        assertEquals(10, this.player.getFrameCourante().getStandingQuilles());
-        this.player.lancer(0);
-        assertEquals(10, this.player.getFrameCourante().getStandingQuilles());
-        this.player.lancer(8);
-        assertEquals(2, this.player.getFrameCourante().getStandingQuilles());
+        assertEquals(15, this.player.getCurrentFrame().getStandingPins());
+        this.player.launch(5);
+        assertEquals(10, this.player.getCurrentFrame().getStandingPins());
+        this.player.launch(0);
+        assertEquals(10, this.player.getCurrentFrame().getStandingPins());
+        this.player.launch(8);
+        assertEquals(2, this.player.getCurrentFrame().getStandingPins());
 
         this.player.initializeNewFrame();
-        assertEquals(15, this.player.getFrameCourante().getStandingQuilles());
-        this.player.lancer(5);
-        assertEquals(10, this.player.getFrameCourante().getStandingQuilles());
-        this.player.lancer(10);
-        assertEquals(0, this.player.getFrameCourante().getStandingQuilles());
-        this.player.lancer(8);
-        assertEquals(0, this.player.getFrameCourante().getStandingQuilles());
+        assertEquals(15, this.player.getCurrentFrame().getStandingPins());
+        this.player.launch(5);
+        assertEquals(10, this.player.getCurrentFrame().getStandingPins());
+        this.player.launch(10);
+        assertEquals(0, this.player.getCurrentFrame().getStandingPins());
+        this.player.launch(8);
+        assertEquals(0, this.player.getCurrentFrame().getStandingPins());
     }
 
     @Test(expected = UnsupportedOperationException.class)
     public void testGetFramesIsNotModifiableAdd() {
         List<Frame> frames = this.player.getFrames();
-        frames.add(new Frame(false));
+        frames.add(new ThreeLaunchFrame());
     }
 
     @Test(expected = UnsupportedOperationException.class)
     public void testGetFramesIsNotModifiableSet() {
         List<Frame> frames = this.player.getFrames();
-        frames.set(1, new Frame(false));
+        frames.set(1, new ThreeLaunchFrame());
     }
 
     @Test(expected = UnsupportedOperationException.class)

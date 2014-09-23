@@ -26,17 +26,17 @@ public class Launcher {
 //
 //            joueur1.initializeNewFrame();
 //            for (int j = 0; j < 3; ++j) {
-//                joueur1.lancer(genererNombreQuillesAbattues(joueur1.getFrameCourante().getStandingQuilles()));
+//                joueur1.launch(generateRandomlyFallenPinsNumber(joueur1.getCurrentFrame().getStandingPins()));
 //            }
 //
 //            joueur2.initializeNewFrame();
 //            for (int j = 0; j < 3; ++j) {
-//                joueur2.lancer(genererNombreQuillesAbattues(joueur2.getFrameCourante().getStandingQuilles()));
+//                joueur2.launch(generateRandomlyFallenPinsNumber(joueur2.getCurrentFrame().getStandingPins()));
 //            }
 //
 //            joueur3.initializeNewFrame();
 //            for (int j = 0; j < 3; ++j) {
-//                joueur3.lancer(genererNombreQuillesAbattues(joueur3.getFrameCourante().getStandingQuilles()));
+//                joueur3.launch(generateRandomlyFallenPinsNumber(joueur3.getCurrentFrame().getStandingPins()));
 //            }
 //        }
 //
@@ -49,52 +49,52 @@ public class Launcher {
 //        ScoreManager.displayScore(scoreJoueur3);
 
         player1.initializeNewFrame();
-        player1.lancer(8);
-        player1.lancer(1);
-        player1.lancer(1);
+        player1.launch(8);
+        player1.launch(1);
+        player1.launch(1);
 
         player1.initializeNewFrame();
-        player1.lancer(8);
-        player1.lancer(7);
+        player1.launch(8);
+        player1.launch(7);
 
         player1.initializeNewFrame();
-        player1.lancer(1);
-        player1.lancer(2);
-        player1.lancer(1);
+        player1.launch(1);
+        player1.launch(2);
+        player1.launch(1);
 
         player1.initializeNewFrame();
-        player1.lancer(15);
+        player1.launch(15);
 
         player1.initializeNewFrame();
-        player1.lancer(1);
-        player1.lancer(2);
-        player1.lancer(1);
+        player1.launch(1);
+        player1.launch(2);
+        player1.launch(1);
 
         List<ScoreContainer> scoreJoueur1 = ScoreManager.calculer(player1.getFrames());
 
         player2.initializeNewFrame();
-        player2.lancer(15);
+        player2.launch(15);
 
         player2.initializeNewFrame();
-        player2.lancer(8);
-        player2.lancer(1);
-        player2.lancer(2);
+        player2.launch(8);
+        player2.launch(1);
+        player2.launch(2);
 
         player2.initializeNewFrame();
-        player2.lancer(1);
-        player2.lancer(2);
-        player2.lancer(12);
+        player2.launch(1);
+        player2.launch(2);
+        player2.launch(12);
 
         player2.initializeNewFrame();
-        player2.lancer(6);
-        player2.lancer(4);
-        player2.lancer(1);
+        player2.launch(6);
+        player2.launch(4);
+        player2.launch(1);
 
         player2.initializeNewFrame();
-        player2.lancer(15);
-        player2.lancer(8);
-        player2.lancer(2);
-        player2.lancer(3);
+        player2.launch(15);
+        player2.launch(8);
+        player2.launch(2);
+        player2.launch(3);
 
         List<ScoreContainer> scoreJoueur2 = ScoreManager.calculer(player2.getFrames());
 
@@ -102,7 +102,7 @@ public class Launcher {
         ScoreManager.displayScore(scoreJoueur2);
     }
 
-    private static int genererNombreQuillesAbattues(int borneSuperieure) {
+    private static int generateRandomlyFallenPinsNumber(int borneSuperieure) {
         return random.nextInt(borneSuperieure);
     }
 }

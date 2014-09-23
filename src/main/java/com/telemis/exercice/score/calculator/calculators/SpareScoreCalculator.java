@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 20/09/2014.
- *
+ * <p/>
  * Classe permettant de calculer le score d'une frame lors d'un spare.
  */
 public class SpareScoreCalculator implements ScoreCalculator {
@@ -31,9 +31,9 @@ public class SpareScoreCalculator implements ScoreCalculator {
     /**
      * @see com.telemis.exercice.score.calculator.calculators.ScoreCalculator#calculate(java.util.List, int, int)
      */
-    public ScoreContainer calculate(List<Frame> frames, int currentTotalScore, int framePosition) {
+    public ScoreContainer calculate(List<Frame> frames, int framePosition) {
         ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.NORMAL);
-        ScoreContainer container = scoreCalculator.calculate(frames, 0, framePosition);
+        ScoreContainer container = scoreCalculator.calculate(frames, framePosition);
         int frameScore = container.getFrameScore();
 
         completeSpareRepresentation(container, frames.get(framePosition).getLancers().size());
@@ -41,12 +41,11 @@ public class SpareScoreCalculator implements ScoreCalculator {
         List<Lancer> nextFrameLancers = frames.get(framePosition + 1).getLancers();
 
         for (int i = 0; i < 2; ++i) {
-            final int quilleAbattue = nextFrameLancers.get(i).getFallenQuilles();
-            frameScore += quilleAbattue;
+            final int fallenPins = nextFrameLancers.get(i).getFallenPins();
+            frameScore += fallenPins;
         }
 
         container.setFrameScore(frameScore);
-        container.setTotalScore(currentTotalScore + frameScore);
 
         return container;
     }
