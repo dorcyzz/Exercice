@@ -19,8 +19,6 @@ public class Player {
     private final List<Frame> frames = new ArrayList<>();
 
     public Player(String name) {
-        super();
-
         this.name = name;
     }
 

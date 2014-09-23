@@ -18,7 +18,7 @@ public class StrikeNormalFrameScoreCalculator extends StrikeScoreCalculator {
     private static final StrikeScoreCalculator INSTANCE = new StrikeNormalFrameScoreCalculator();
 
     private StrikeNormalFrameScoreCalculator() {
-        super();
+
     }
 
     public static StrikeScoreCalculator getInstance() {

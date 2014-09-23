@@ -20,7 +20,6 @@ public class SpareScoreCalculator implements ScoreCalculator {
     private static final SpareScoreCalculator INSTANCE = new SpareScoreCalculator();
 
     private SpareScoreCalculator() {
-        super();
     }
 
     public static SpareScoreCalculator getInstance() {

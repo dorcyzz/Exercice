@@ -16,7 +16,7 @@ public class NormalScoreCalculator implements ScoreCalculator {
     private static final NormalScoreCalculator INSTANCE = new NormalScoreCalculator();
 
     private NormalScoreCalculator() {
-        super();
+
     }
 
     public static NormalScoreCalculator getInstance() {

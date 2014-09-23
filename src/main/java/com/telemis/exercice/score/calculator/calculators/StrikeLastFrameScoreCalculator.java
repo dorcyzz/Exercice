@@ -14,7 +14,7 @@ public class StrikeLastFrameScoreCalculator extends StrikeScoreCalculator {
     private static final StrikeScoreCalculator INSTANCE = new StrikeLastFrameScoreCalculator();
 
     private StrikeLastFrameScoreCalculator() {
-        super();
+
     }
 
     public static StrikeScoreCalculator getInstance() {

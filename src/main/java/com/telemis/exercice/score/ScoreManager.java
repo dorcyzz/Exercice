@@ -30,8 +30,6 @@ public class ScoreManager {
         List<ScoreContainer> scoreHistory = new ArrayList<>();
 
         int framePosition = 0;
-        int totalScore = 0;
-        ScoreCalculator scoreCalculator;
 
         Map<ScoreCalculatorType, ScoreCalculator> calculators = createCalculatorMap();
 
@@ -47,8 +45,6 @@ public class ScoreManager {
             } else {
                 container = calculators.get(ScoreCalculatorType.NORMAL).calculate(frames, framePosition);
             }
-
-            totalScore += container.getFrameScore();
 
             scoreHistory.add(container);
             ++framePosition;

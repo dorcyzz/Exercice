@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 20/09/2014.
- *
+ * <p/>
  * Classe permettant de calculer le calculateStrikeScore d'une frame lors d'un strike.
  */
 public abstract class StrikeScoreCalculator implements ScoreCalculator {
