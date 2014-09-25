@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * Created by sebastien.vandamme@gmail.com on 18/09/2014.
+ * Created by sebastien.vandamme@gmail.com on 20/09/2014.
  */
 public class PlayerTest {
 

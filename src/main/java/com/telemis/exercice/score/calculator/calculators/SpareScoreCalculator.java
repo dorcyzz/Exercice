@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 20/09/2014.
- * <p/>
+ *
  * Classe permettant de calculer le score d'une frame lors d'un spare.
  */
 //TODO quid si spare dans dernière frame ?

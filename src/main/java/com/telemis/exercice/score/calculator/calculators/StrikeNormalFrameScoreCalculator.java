@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 20/09/2014.
- *
+ * <p/>
  * Classe permettant de calculer le score d'une frame lors d'un strike ayant lieu dans la cinquième frame.
  */
 public class StrikeNormalFrameScoreCalculator extends StrikeScoreCalculator {

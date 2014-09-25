@@ -1,9 +1,10 @@
 package com.telemis.exercice.game;
 
 /**
- * Created by sebastien.vandamme@gmail.com on 18/09/2014.
+ * Created by sebastien.vandamme@gmail.com on 20/09/2014.
+ * <p/>
+ * Classe représentant un lancer.
  */
-// TODO javadoc + comment
 public class Lancer {
 
     private final int fallenPins;
@@ -16,11 +17,19 @@ public class Lancer {
         this.fallenPins = fallenPins;
     }
 
+    /**
+     * Renvoie le nombre de quilles abattues.
+     *
+     * @return le nombre de quilles abattues
+     */
     public int getFallenPins() {
         return fallenPins;
     }
 
     @Override
+    /**
+     * @see Object#toString()
+     */
     public String toString() {
         return "Lancer{" + "fallenPins=" + fallenPins + '}';
     }

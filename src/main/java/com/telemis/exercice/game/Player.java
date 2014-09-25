@@ -10,9 +10,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by sebastien.vandamme@gmail.com on 18/09/2014.
+ * Created by sebastien.vandamme@gmail.com on 20/09/2014.
+ * <p/>
+ * Classe représentant un joueur.
  */
-// TODO javadoc + comment
 public class Player {
 
     private static final Logger LOGGER = Logger.getLogger(Player.class);
@@ -29,6 +30,11 @@ public class Player {
         return Collections.unmodifiableList(this.frames);
     }
 
+    /**
+     * Renvoie la frame courante, c'est-à-dire la frame dans laquelle le joueur est en train de jouer.
+     *
+     * @return la frame courante
+     */
     public Frame getCurrentFrame() {
         if (frames.isEmpty()) {
             throw new IllegalStateException("Aucune frame initialisée pour le joueur " + name + ", veillez initialiser une frame");
@@ -37,6 +43,11 @@ public class Player {
         return frames.get(frames.size() - 1);
     }
 
+    /**
+     * Initialise une nouvelle frame pour le joueur. Le nombre de frame existante ne peut dépasser 5. Dans le cas ou la frame initialisée est une des 4
+     * premières frames, la frame créée sera une frame permattant un maximum de 3 lancers. Dans le cas ou la frame initialisée est la cinquième frame, la frame
+     * créée sera une frame permattant un maximum de 4 lancers.
+     */
     public void initializeNewFrame() {
         int currentNumberOfFrames = frames.size();
 
@@ -54,7 +65,7 @@ public class Player {
     }
 
     /**
-     * donne le résultat du launch suivant pour ce joueur
+     * Donne le résultat du lancé suivant pour ce joueur.
      *
      * @param fallenPins donne le nombre de quilles abattues par ce launch
      */
@@ -65,6 +76,9 @@ public class Player {
     }
 
     @Override
+    /**
+     * @see Object#toString()
+     */
     public String toString() {
         return "Joueur{" + "name='" + name + '\'' + ", frames=" + frames + '}';
     }

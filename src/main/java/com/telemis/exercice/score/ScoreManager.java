@@ -16,7 +16,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by sebastien.vandamme@gmail.com on 18/09/2014.
+ * Created by sebastien.vandamme@gmail.com on 20/09/2014.
+ * <p/>
+ * Classe utilitaire gérant le calcul et l'affichage du score.
  */
 public class ScoreManager {
 
@@ -26,10 +28,14 @@ public class ScoreManager {
 
     }
 
+    /**
+     * Renvoie une liste d'objet ScoreContainer représentant le score détaillé de chaque frame.
+     *
+     * @param frames la liste des frames représentant la prtie d'un joueur
+     * @return une liste d'objet ScoreContainer représentant le score détaillé de chaque frame
+     */
     public static List<ScoreContainer> calculer(List<Frame> frames) {
         List<ScoreContainer> scoreHistory = new ArrayList<>();
-
-        int framePosition = 0;
 
         Map<ScoreCalculatorType, ScoreCalculator> calculators = createCalculatorMap();
 
@@ -47,7 +53,6 @@ public class ScoreManager {
             }
 
             scoreHistory.add(container);
-            ++framePosition;
         }
 
         return scoreHistory;
@@ -64,6 +69,11 @@ public class ScoreManager {
         return calculators;
     }
 
+    /**
+     * Affiche le score détaillé d'une partie.
+     *
+     * @param scoreHistory une liste d'objet ScoreContainer représentant le score détaillé de chaque frame
+     */
     public static void displayScore(List<ScoreContainer> scoreHistory) {
         int totalScore = 0;
 
