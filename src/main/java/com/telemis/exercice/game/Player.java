@@ -1,6 +1,6 @@
 package com.telemis.exercice.game;
 
-import com.telemis.exercice.game.frame.FourLaunchFrame;
+import com.telemis.exercice.game.frame.FiveLaunchFrame;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.game.frame.ThreeLaunchFrame;
 import org.apache.log4j.Logger;
@@ -56,7 +56,7 @@ public class Player {
         }
 
         if (currentNumberOfFrames == 4) {
-            this.frames.add(new FourLaunchFrame());
+            this.frames.add(new FiveLaunchFrame());
         } else {
             this.frames.add(new ThreeLaunchFrame());
         }

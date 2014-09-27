@@ -11,7 +11,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         ThreeLaunchFrameTest.class,
-        FourLaunchFrameTest.class,
+        FiveLaunchFrameTest.class,
         PlayerTest.class,
         LancerTest.class,
         ScoreManagerTest.class,

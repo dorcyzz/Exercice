@@ -66,6 +66,10 @@ public abstract class Frame {
         return this.standingPins;
     }
 
+    void setStandingPins(int standingPins) {
+        this.standingPins = standingPins;
+    }
+
     /**
      * Renvoie le type de score.
      *

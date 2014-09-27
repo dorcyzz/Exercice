@@ -389,6 +389,7 @@ public class ScoreManagerTest {
         player1.launch(3);
         player1.launch(5);
         player1.launch(3);
+        player1.launch(3);
 
         List<ScoreContainer> scoreJoueur1 = ScoreManager.calculer(player1.getFrames());
 
@@ -441,14 +442,15 @@ public class ScoreManagerTest {
 
         ScoreContainer scoreFrame5 = scoreJoueur1.get(4);
         assertEquals(5, scoreFrame5.getFrameNumber());
-        assertEquals(18, scoreFrame5.getFrameScore());
+        assertEquals(21, scoreFrame5.getFrameScore());
 
         lancersScores = scoreFrame5.getLancersScores();
         assertNotNull(lancersScores);
-        assertEquals(4, lancersScores.size());
+        assertEquals(5, lancersScores.size());
         assertEquals("7", lancersScores.get(0));
         assertEquals("3", lancersScores.get(1));
         assertEquals("/", lancersScores.get(2));
+        assertEquals("3", lancersScores.get(3));
         assertEquals("3", lancersScores.get(3));
     }
 }

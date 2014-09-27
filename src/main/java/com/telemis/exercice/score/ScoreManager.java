@@ -1,7 +1,7 @@
 package com.telemis.exercice.score;
 
 import com.telemis.exercice.game.enums.ScoreType;
-import com.telemis.exercice.game.frame.FourLaunchFrame;
+import com.telemis.exercice.game.frame.FiveLaunchFrame;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.game.frame.ThreeLaunchFrame;
 import com.telemis.exercice.score.calculator.ScoreCalculatorFactory;
@@ -44,7 +44,7 @@ public class ScoreManager {
 
             if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof ThreeLaunchFrame) {
                 container = calculators.get(ScoreCalculatorType.STRIKE_NORMAL).calculate(frames, frame);
-            } else if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof FourLaunchFrame) {
+            } else if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof FiveLaunchFrame) {
                 container = calculators.get(ScoreCalculatorType.STRIKE_LAST_FRAME).calculate(frames, frame);
             } else if (ScoreType.SPARE == frame.getScoreType()) {
                 container = calculators.get(ScoreCalculatorType.SPARE).calculate(frames, frame);
