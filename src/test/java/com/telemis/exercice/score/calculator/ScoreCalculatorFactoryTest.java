@@ -1,6 +1,11 @@
 package com.telemis.exercice.score.calculator;
 
-import com.telemis.exercice.score.calculator.calculators.*;
+import com.telemis.exercice.score.calculator.calculators.ScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.normal.NormalScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.spare.SpareLastFrameScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.spare.SpareNormalScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.strike.StrikeLastFrameScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.strike.StrikeNormalFrameScoreCalculator;
 import com.telemis.exercice.score.calculator.enums.ScoreCalculatorType;
 import org.junit.Test;
 
@@ -17,10 +22,17 @@ public class ScoreCalculatorFactoryTest {
     }
 
     @Test
-    public void testCreateSpareScoreCalculator() throws Exception {
-        ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.SPARE);
+    public void testCreateSpareNormalScoreCalculator() throws Exception {
+        ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.SPARE_NORMAL);
         assertNotNull(scoreCalculator);
-        assertTrue(scoreCalculator instanceof SpareScoreCalculator);
+        assertTrue(scoreCalculator instanceof SpareNormalScoreCalculator);
+    }
+
+    @Test
+    public void testCreateSpareLastFrameScoreCalculator() throws Exception {
+        ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.SPARE_LAST_FRAME);
+        assertNotNull(scoreCalculator);
+        assertTrue(scoreCalculator instanceof SpareLastFrameScoreCalculator);
     }
 
     @Test

@@ -46,8 +46,10 @@ public class ScoreManager {
                 container = calculators.get(ScoreCalculatorType.STRIKE_NORMAL).calculate(frames, frame);
             } else if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof FiveLaunchFrame) {
                 container = calculators.get(ScoreCalculatorType.STRIKE_LAST_FRAME).calculate(frames, frame);
-            } else if (ScoreType.SPARE == frame.getScoreType()) {
-                container = calculators.get(ScoreCalculatorType.SPARE).calculate(frames, frame);
+            } else if (ScoreType.SPARE == frame.getScoreType() && frame instanceof ThreeLaunchFrame) {
+                container = calculators.get(ScoreCalculatorType.SPARE_NORMAL).calculate(frames, frame);
+            } else if (ScoreType.SPARE == frame.getScoreType() && frame instanceof FiveLaunchFrame) {
+                container = calculators.get(ScoreCalculatorType.SPARE_LAST_FRAME).calculate(frames, frame);
             } else {
                 container = calculators.get(ScoreCalculatorType.NORMAL).calculate(frames, frame);
             }
@@ -62,7 +64,8 @@ public class ScoreManager {
         Map<ScoreCalculatorType, ScoreCalculator> calculators = new HashMap<>();
 
         calculators.put(ScoreCalculatorType.NORMAL, ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.NORMAL));
-        calculators.put(ScoreCalculatorType.SPARE, ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.SPARE));
+        calculators.put(ScoreCalculatorType.SPARE_NORMAL, ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.SPARE_NORMAL));
+        calculators.put(ScoreCalculatorType.SPARE_LAST_FRAME, ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.SPARE_LAST_FRAME));
         calculators.put(ScoreCalculatorType.STRIKE_NORMAL, ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.STRIKE_NORMAL));
         calculators.put(ScoreCalculatorType.STRIKE_LAST_FRAME, ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.STRIKE_LAST_FRAME));
 

@@ -1,4 +1,4 @@
-package com.telemis.exercice.score.calculator.calculators;
+package com.telemis.exercice.score.calculator.calculators.strike;
 
 import com.telemis.exercice.game.Lancer;
 import com.telemis.exercice.game.frame.Frame;

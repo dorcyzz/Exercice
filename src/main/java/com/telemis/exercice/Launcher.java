@@ -15,7 +15,7 @@ public class Launcher {
 
     private static final Logger LOGGER = Logger.getLogger(Launcher.class);
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public static void main(String[] args) {
         // playScenario1();

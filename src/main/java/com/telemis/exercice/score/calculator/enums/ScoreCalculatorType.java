@@ -6,5 +6,5 @@ package com.telemis.exercice.score.calculator.enums;
  * Enum définissant les types de calculateur de score existants.
  */
 public enum ScoreCalculatorType {
-    NORMAL, SPARE, STRIKE_NORMAL, STRIKE_LAST_FRAME
+    NORMAL, SPARE_NORMAL, SPARE_LAST_FRAME, STRIKE_NORMAL, STRIKE_LAST_FRAME
 }

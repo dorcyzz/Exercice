@@ -1,8 +1,9 @@
-package com.telemis.exercice.score.calculator.calculators;
+package com.telemis.exercice.score.calculator.calculators.normal;
 
 import com.telemis.exercice.game.Lancer;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.score.ScoreContainer;
+import com.telemis.exercice.score.calculator.calculators.ScoreCalculator;
 
 import java.util.List;
 

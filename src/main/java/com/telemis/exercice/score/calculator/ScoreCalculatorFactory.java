@@ -1,6 +1,11 @@
 package com.telemis.exercice.score.calculator;
 
-import com.telemis.exercice.score.calculator.calculators.*;
+import com.telemis.exercice.score.calculator.calculators.ScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.normal.NormalScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.spare.SpareLastFrameScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.spare.SpareNormalScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.strike.StrikeLastFrameScoreCalculator;
+import com.telemis.exercice.score.calculator.calculators.strike.StrikeNormalFrameScoreCalculator;
 import com.telemis.exercice.score.calculator.enums.ScoreCalculatorType;
 
 /**
@@ -24,8 +29,10 @@ public class ScoreCalculatorFactory {
         switch (calculatorType) {
             case NORMAL:
                 return NormalScoreCalculator.getInstance();
-            case SPARE:
-                return SpareScoreCalculator.getInstance();
+            case SPARE_NORMAL:
+                return SpareNormalScoreCalculator.getInstance();
+            case SPARE_LAST_FRAME:
+                return SpareLastFrameScoreCalculator.getInstance();
             case STRIKE_NORMAL:
                 return StrikeNormalFrameScoreCalculator.getInstance();
             case STRIKE_LAST_FRAME:
