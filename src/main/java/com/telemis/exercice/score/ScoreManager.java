@@ -40,21 +40,21 @@ public class ScoreManager {
         Map<ScoreCalculatorType, ScoreCalculator> calculators = createCalculatorMap();
 
         for (Frame frame : frames) {
-            ScoreContainer container;
+            ScoreCalculator calculator;
 
             if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof ThreeLaunchFrame) {
-                container = calculators.get(ScoreCalculatorType.STRIKE_NORMAL).calculate(frames, frame);
+                calculator = calculators.get(ScoreCalculatorType.STRIKE_NORMAL);
             } else if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof FiveLaunchFrame) {
-                container = calculators.get(ScoreCalculatorType.STRIKE_LAST_FRAME).calculate(frames, frame);
+                calculator = calculators.get(ScoreCalculatorType.STRIKE_LAST_FRAME);
             } else if (ScoreType.SPARE == frame.getScoreType() && frame instanceof ThreeLaunchFrame) {
-                container = calculators.get(ScoreCalculatorType.SPARE_NORMAL).calculate(frames, frame);
+                calculator = calculators.get(ScoreCalculatorType.SPARE_NORMAL);
             } else if (ScoreType.SPARE == frame.getScoreType() && frame instanceof FiveLaunchFrame) {
-                container = calculators.get(ScoreCalculatorType.SPARE_LAST_FRAME).calculate(frames, frame);
+                calculator = calculators.get(ScoreCalculatorType.SPARE_LAST_FRAME);
             } else {
-                container = calculators.get(ScoreCalculatorType.NORMAL).calculate(frames, frame);
+                calculator = calculators.get(ScoreCalculatorType.NORMAL);
             }
 
-            scoreHistory.add(container);
+            scoreHistory.add(calculator.calculate(frames, frame));
         }
 
         return scoreHistory;
