@@ -1,6 +1,6 @@
 package com.telemis.exercice;
 
-import com.telemis.exercice.score.ScoreManagerTest;
+import com.telemis.exercice.game.FiveLaunchFrameTest;
 import com.telemis.exercice.score.calculator.ScoreCalculatorFactoryTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -10,12 +10,14 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        ThreeLaunchFrameTest.class,
+        FiveLaunchFrameTest.ThreeLaunchFrameTest.class,
         FiveLaunchFrameTest.class,
-        PlayerTest.class,
-        LancerTest.class,
-        ScoreManagerTest.class,
-        ScoreCalculatorFactoryTest.class
+        FiveLaunchFrameTest.PlayerTest.class,
+        FiveLaunchFrameTest.LancerTest.class,
+        ScoreCalculatorFactoryTest.class,
+        IntegrationTestNormalScenario.class,
+        IntegrationTestSpareScenario.class,
+        IntegrationTestStrikeScenario.class
 })
 public class TestSuite {
 }

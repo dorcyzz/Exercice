@@ -1,6 +1,5 @@
-package com.telemis.exercice;
+package com.telemis.exercice.game;
 
-import com.telemis.exercice.game.Lancer;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

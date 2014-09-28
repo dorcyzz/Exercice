@@ -1,6 +1,5 @@
-package com.telemis.exercice;
+package com.telemis.exercice.game;
 
-import com.telemis.exercice.game.Lancer;
 import com.telemis.exercice.game.enums.ScoreType;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.game.frame.ThreeLaunchFrame;
