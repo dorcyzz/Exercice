@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Created by sebastien.vandamme@gmail.com on 29/09/2014.
+ *
+ * Classe utilitaire calculant le score spécial (spare ou strike) d'une frame normale.
  */
 public final class SpecialNormalScoreUtils {
 
