@@ -7,22 +7,22 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by sebastien.vandamme@gmail.com on 20/09/2014.
  */
-public class LancerTest {
+public class LaunchTest {
 
     @Test(expected = IllegalStateException.class)
     public void testCreateLancerNegative() throws Exception {
-        new Lancer(-1);
+        new Launch(-1);
     }
 
     @Test
     public void testCreateLancerZero() throws Exception {
-        Lancer lancer = new Lancer(0);
-        assertEquals(0, lancer.getFallenPins());
+        Launch launch = new Launch(0);
+        assertEquals(0, launch.getFallenPins());
     }
 
     @Test
     public void testCreateLancer() throws Exception {
-        Lancer lancer = new Lancer(8);
-        assertEquals(8, lancer.getFallenPins());
+        Launch launch = new Launch(8);
+        assertEquals(8, launch.getFallenPins());
     }
 }

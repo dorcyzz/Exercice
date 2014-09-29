@@ -1,6 +1,6 @@
 package com.telemis.exercice.score.calculator.calculators.strike;
 
-import com.telemis.exercice.game.Lancer;
+import com.telemis.exercice.game.Launch;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.score.ScoreContainer;
 
@@ -25,14 +25,14 @@ public class StrikeLastFrameScoreCalculator extends StrikeScoreCalculator {
     int calculateStrikeScore(ScoreContainer container, List<Frame> frames, Frame frame) {
         int frameScore = 0;
 
-        for (Lancer lancer : frame.getLancers()) {
-            int fallenPins = lancer.getFallenPins();
+        for (Launch launch : frame.getLaunches()) {
+            int fallenPins = launch.getFallenPins();
             frameScore += fallenPins;
 
-            if (fallenPins == 15) {
+            if (fallenPins == Frame.TOTAL_NUMBER_OF_PINS) {
                 container.getLancersScores().add(STRIKE_SYMBOL);
             } else {
-                container.getLancersScores().add(Integer.toString(lancer.getFallenPins()));
+                container.getLancersScores().add(Integer.toString(launch.getFallenPins()));
             }
         }
 

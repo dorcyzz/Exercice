@@ -45,7 +45,7 @@ public class SpareLastFrameScoreCalculator extends SpareScoreCalculator {
         for (int i = 0; i < lancersScores.size(); ++i) {
             currentScore += Integer.valueOf(lancersScores.get(i));
 
-            if (currentScore == 15) {
+            if (currentScore == Frame.TOTAL_NUMBER_OF_PINS) {
                 lancersScores.set(i, SPARE_SYMBOL);
                 break;
             }

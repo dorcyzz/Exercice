@@ -1,6 +1,7 @@
 package com.telemis.exercice;
 
 import com.telemis.exercice.game.Player;
+import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.score.ScoreContainer;
 import com.telemis.exercice.score.ScoreManager;
 import org.apache.log4j.Logger;
@@ -41,7 +42,7 @@ public class Launcher {
         player1.launch(1);
 
         player1.initializeNewFrame();
-        player1.launch(15);
+        player1.launch(Frame.TOTAL_NUMBER_OF_PINS);
 
         player1.initializeNewFrame();
         player1.launch(1);
@@ -55,7 +56,7 @@ public class Launcher {
     private static void playScenario2() {
         Player player2 = new Player("Joueur 2");
         player2.initializeNewFrame();
-        player2.launch(15);
+        player2.launch(Frame.TOTAL_NUMBER_OF_PINS);
 
         player2.initializeNewFrame();
         player2.launch(8);
@@ -73,7 +74,7 @@ public class Launcher {
         player2.launch(1);
 
         player2.initializeNewFrame();
-        player2.launch(15);
+        player2.launch(Frame.TOTAL_NUMBER_OF_PINS);
         player2.launch(8);
         player2.launch(2);
         player2.launch(3);

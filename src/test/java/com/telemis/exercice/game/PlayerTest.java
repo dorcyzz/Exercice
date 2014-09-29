@@ -1,7 +1,7 @@
 package com.telemis.exercice.game;
 
 import com.telemis.exercice.game.frame.Frame;
-import com.telemis.exercice.game.frame.ThreeLaunchFrame;
+import com.telemis.exercice.game.frame.ThreeLaunchesFrame;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -85,7 +85,7 @@ public class PlayerTest {
     @Test
     public void testLancer() throws Exception {
         this.player.initializeNewFrame();
-        assertEquals(15, this.player.getCurrentFrame().getStandingPins());
+        assertEquals(Frame.TOTAL_NUMBER_OF_PINS, this.player.getCurrentFrame().getStandingPins());
         this.player.launch(5);
         assertEquals(10, this.player.getCurrentFrame().getStandingPins());
         this.player.launch(0);
@@ -94,7 +94,7 @@ public class PlayerTest {
         assertEquals(2, this.player.getCurrentFrame().getStandingPins());
 
         this.player.initializeNewFrame();
-        assertEquals(15, this.player.getCurrentFrame().getStandingPins());
+        assertEquals(Frame.TOTAL_NUMBER_OF_PINS, this.player.getCurrentFrame().getStandingPins());
         this.player.launch(5);
         assertEquals(10, this.player.getCurrentFrame().getStandingPins());
         this.player.launch(10);
@@ -106,13 +106,13 @@ public class PlayerTest {
     @Test(expected = UnsupportedOperationException.class)
     public void testGetFramesIsNotModifiableAdd() {
         List<Frame> frames = this.player.getFrames();
-        frames.add(new ThreeLaunchFrame());
+        frames.add(new ThreeLaunchesFrame());
     }
 
     @Test(expected = UnsupportedOperationException.class)
     public void testGetFramesIsNotModifiableSet() {
         List<Frame> frames = this.player.getFrames();
-        frames.set(1, new ThreeLaunchFrame());
+        frames.set(1, new ThreeLaunchesFrame());
     }
 
     @Test(expected = UnsupportedOperationException.class)

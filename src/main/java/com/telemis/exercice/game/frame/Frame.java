@@ -1,6 +1,6 @@
 package com.telemis.exercice.game.frame;
 
-import com.telemis.exercice.game.Lancer;
+import com.telemis.exercice.game.Launch;
 import com.telemis.exercice.game.enums.ScoreType;
 
 import java.util.ArrayList;
@@ -18,27 +18,31 @@ public abstract class Frame {
 
     private int standingPins = TOTAL_NUMBER_OF_PINS;
 
-    private final List<Lancer> lancers = new ArrayList<>();
+    private final List<Launch> launches = new ArrayList<>();
 
     private ScoreType scoreType = ScoreType.NORMAL;
 
     /**
-     * Ajoute le lanceé à la frame en vérifiant que le nombre de lancers maximum n'a pas été atteint. Modifie le type de score suite au lancer, s'il y a lieu.
+     * Ajoute le lancé à la frame en vérifiant que le nombre de lancers maximum n'a pas été atteint. Modifie le type de score suite au lancer, s'il y a lieu.
      *
-     * @param lancer le lancer effectué
+     * @param launch le lancer effectué
      */
-    public void addLancer(Lancer lancer) {
-        checkMaximumLaunch();
+    public void addLaunch(Launch launch) {
+        checkMaximumLaunchesAuthorized();
 
-        this.lancers.add(lancer);
-        this.standingPins -= lancer.getFallenPins();
+        this.launches.add(launch);
+        this.standingPins -= launch.getFallenPins();
 
         if (this.standingPins < 0) {
             this.standingPins = 0;
         }
 
+        checkIfSpecialScore();
+    }
+
+    private void checkIfSpecialScore() {
         if (this.standingPins == 0) {
-            if (lancers.size() == 1) {
+            if (launches.size() == 1) {
                 scoreType = ScoreType.STRIKE;
             } else if (scoreType != ScoreType.STRIKE) {
                 scoreType = ScoreType.SPARE;
@@ -46,15 +50,18 @@ public abstract class Frame {
         }
     }
 
-    abstract void checkMaximumLaunch();
+    /**
+     * Vérifie que le nombre maximum de lancer autorisés n'est pas dépassé.
+     */
+    abstract void checkMaximumLaunchesAuthorized();
 
     /**
      * Renvoie la liste des lancers déjà effectués dans cette frame.
      *
      * @return la liste des lancers déjà effectués dans cette frame
      */
-    public List<Lancer> getLancers() {
-        return Collections.unmodifiableList(this.lancers);
+    public List<Launch> getLaunches() {
+        return Collections.unmodifiableList(this.launches);
     }
 
     /**
@@ -85,6 +92,6 @@ public abstract class Frame {
      * @see Object#toString()
      */
     public String toString() {
-        return "Frame{" + "standingPins=" + standingPins + ", lancers=" + lancers + ", scoreType=" + scoreType + '}';
+        return "Frame{" + "standingPins=" + standingPins + ", lancers=" + launches + ", scoreType=" + scoreType + '}';
     }
 }

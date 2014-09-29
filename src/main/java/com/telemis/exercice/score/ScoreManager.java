@@ -1,9 +1,9 @@
 package com.telemis.exercice.score;
 
 import com.telemis.exercice.game.enums.ScoreType;
-import com.telemis.exercice.game.frame.FiveLaunchFrame;
+import com.telemis.exercice.game.frame.FiveLaunchesFrame;
 import com.telemis.exercice.game.frame.Frame;
-import com.telemis.exercice.game.frame.ThreeLaunchFrame;
+import com.telemis.exercice.game.frame.ThreeLaunchesFrame;
 import com.telemis.exercice.score.calculator.ScoreCalculatorFactory;
 import com.telemis.exercice.score.calculator.calculators.ScoreCalculator;
 import com.telemis.exercice.score.calculator.enums.ScoreCalculatorType;
@@ -42,13 +42,13 @@ public class ScoreManager {
         for (Frame frame : frames) {
             ScoreCalculator calculator;
 
-            if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof ThreeLaunchFrame) {
+            if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof ThreeLaunchesFrame) {
                 calculator = calculators.get(ScoreCalculatorType.STRIKE_NORMAL);
-            } else if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof FiveLaunchFrame) {
+            } else if (ScoreType.STRIKE == frame.getScoreType() && frame instanceof FiveLaunchesFrame) {
                 calculator = calculators.get(ScoreCalculatorType.STRIKE_LAST_FRAME);
-            } else if (ScoreType.SPARE == frame.getScoreType() && frame instanceof ThreeLaunchFrame) {
+            } else if (ScoreType.SPARE == frame.getScoreType() && frame instanceof ThreeLaunchesFrame) {
                 calculator = calculators.get(ScoreCalculatorType.SPARE_NORMAL);
-            } else if (ScoreType.SPARE == frame.getScoreType() && frame instanceof FiveLaunchFrame) {
+            } else if (ScoreType.SPARE == frame.getScoreType() && frame instanceof FiveLaunchesFrame) {
                 calculator = calculators.get(ScoreCalculatorType.SPARE_LAST_FRAME);
             } else {
                 calculator = calculators.get(ScoreCalculatorType.NORMAL);

@@ -5,14 +5,17 @@ package com.telemis.exercice.game.frame;
  * <p/>
  * Classe représentant une frame pouvant contenir 3 lancers.
  */
-public class ThreeLaunchFrame extends Frame {
+public class ThreeLaunchesFrame extends Frame {
 
-    public ThreeLaunchFrame() {
+    public ThreeLaunchesFrame() {
 
     }
 
-    void checkMaximumLaunch() {
-        if (this.getLancers().size() >= 3) {
+    /**
+     * @see com.telemis.exercice.game.frame.Frame#checkMaximumLaunchesAuthorized()
+     */
+    void checkMaximumLaunchesAuthorized() {
+        if (this.getLaunches().size() >= 3) {
             throw new IllegalStateException("Nombre de lancer maximum (3) déjà atteint pour le joueur");
         }
     }

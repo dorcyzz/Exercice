@@ -5,11 +5,11 @@ package com.telemis.exercice.game;
  * <p/>
  * Classe représentant un lancer.
  */
-public class Lancer {
+public class Launch {
 
     private final int fallenPins;
 
-    public Lancer(final int fallenPins) {
+    public Launch(final int fallenPins) {
         if (fallenPins < 0) {
             throw new IllegalStateException("Nombre de quille abattue ne peut être négatif");
         }

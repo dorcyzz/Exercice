@@ -1,6 +1,6 @@
 package com.telemis.exercice.score.calculator.calculators.normal;
 
-import com.telemis.exercice.game.Lancer;
+import com.telemis.exercice.game.Launch;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.score.ScoreContainer;
 import com.telemis.exercice.score.calculator.calculators.ScoreCalculator;
@@ -32,8 +32,8 @@ public class NormalScoreCalculator implements ScoreCalculator {
         ScoreContainer container = new ScoreContainer(frames.indexOf(frame) + 1);
         int frameScore = 0;
 
-        for (Lancer lancer : frame.getLancers()) {
-            final int fallenPins = lancer.getFallenPins();
+        for (Launch launch : frame.getLaunches()) {
+            final int fallenPins = launch.getFallenPins();
             frameScore += fallenPins;
             container.getLancersScores().add(Integer.toString(fallenPins));
         }

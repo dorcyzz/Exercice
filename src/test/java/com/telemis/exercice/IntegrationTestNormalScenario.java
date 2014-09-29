@@ -1,6 +1,7 @@
 package com.telemis.exercice;
 
 import com.telemis.exercice.game.Player;
+import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.score.ScoreContainer;
 import com.telemis.exercice.score.ScoreManager;
 import org.apache.commons.lang3.StringUtils;
@@ -35,7 +36,7 @@ public class IntegrationTestNormalScenario {
         player1.launch(1);
 
         player1.initializeNewFrame();
-        player1.launch(15);
+        player1.launch(Frame.TOTAL_NUMBER_OF_PINS);
 
         player1.initializeNewFrame();
         player1.launch(1);
@@ -108,7 +109,7 @@ public class IntegrationTestNormalScenario {
         Player player1 = new Player("Joueur 1");
 
         player1.initializeNewFrame();
-        player1.launch(15);
+        player1.launch(Frame.TOTAL_NUMBER_OF_PINS);
 
         player1.initializeNewFrame();
         player1.launch(8);
@@ -126,7 +127,7 @@ public class IntegrationTestNormalScenario {
         player1.launch(1);
 
         player1.initializeNewFrame();
-        player1.launch(15);
+        player1.launch(Frame.TOTAL_NUMBER_OF_PINS);
         player1.launch(8);
         player1.launch(2);
         player1.launch(3);

@@ -1,8 +1,8 @@
 package com.telemis.exercice.game;
 
-import com.telemis.exercice.game.frame.FiveLaunchFrame;
+import com.telemis.exercice.game.frame.FiveLaunchesFrame;
 import com.telemis.exercice.game.frame.Frame;
-import com.telemis.exercice.game.frame.ThreeLaunchFrame;
+import com.telemis.exercice.game.frame.ThreeLaunchesFrame;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -45,8 +45,8 @@ public class Player {
 
     /**
      * Initialise une nouvelle frame pour le joueur. Le nombre de frame existante ne peut dépasser 5. Dans le cas ou la frame initialisée est une des 4
-     * premières frames, la frame créée sera une frame permattant un maximum de 3 lancers. Dans le cas ou la frame initialisée est la cinquième frame, la frame
-     * créée sera une frame permattant un maximum de 4 lancers.
+     * premières frames, la frame créée sera une frame permettant un maximum de 3 lancers. Dans le cas ou la frame initialisée est la cinquième frame, la frame
+     * créée sera une frame permattant un maximum de 5 lancers.
      */
     public void initializeNewFrame() {
         int currentNumberOfFrames = frames.size();
@@ -56,9 +56,9 @@ public class Player {
         }
 
         if (currentNumberOfFrames == 4) {
-            this.frames.add(new FiveLaunchFrame());
+            this.frames.add(new FiveLaunchesFrame());
         } else {
-            this.frames.add(new ThreeLaunchFrame());
+            this.frames.add(new ThreeLaunchesFrame());
         }
 
         LOGGER.info("Initialise la frame " + getCurrentFrame() + " pour le joueur " + name + ", toutes les quilles sont debout");
@@ -71,7 +71,7 @@ public class Player {
      */
     public void launch(int fallenPins) {
         LOGGER.info("Lancé de " + name + " ! Nombre de quilles abattues : " + fallenPins);
-        getCurrentFrame().addLancer(new Lancer(fallenPins));
+        getCurrentFrame().addLaunch(new Launch(fallenPins));
         LOGGER.info("Etat de la frame : " + getCurrentFrame());
     }
 

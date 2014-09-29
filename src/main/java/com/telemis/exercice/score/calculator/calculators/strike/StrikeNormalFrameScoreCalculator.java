@@ -1,6 +1,6 @@
 package com.telemis.exercice.score.calculator.calculators.strike;
 
-import com.telemis.exercice.game.Lancer;
+import com.telemis.exercice.game.Launch;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.score.ScoreContainer;
 import org.apache.commons.lang3.StringUtils;
@@ -25,16 +25,16 @@ public class StrikeNormalFrameScoreCalculator extends StrikeScoreCalculator {
 
     int calculateStrikeScore(ScoreContainer container, List<Frame> frames, Frame currentFrame) {
         int launch = 0;
-        int strikeScore = currentFrame.getLancers().get(0).getFallenPins();
+        int strikeScore = currentFrame.getLaunches().get(0).getFallenPins();
 
         List<Frame> framesFromCurrentFrame = frames.subList(frames.indexOf(currentFrame) + 1, frames.size());
 
         completeRepresentation(container);
 
         for (Frame frame : framesFromCurrentFrame) {
-            List<Lancer> lancers = frame.getLancers();
+            List<Launch> launches = frame.getLaunches();
 
-            for (Lancer lancer : lancers) {
+            for (Launch lancer : launches) {
                 strikeScore += lancer.getFallenPins();
                 ++launch;
 
