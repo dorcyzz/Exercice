@@ -3,6 +3,7 @@ package com.telemis.exercice.game;
 import com.telemis.exercice.game.frame.FiveLaunchesFrame;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.game.frame.ThreeLaunchesFrame;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -61,6 +62,7 @@ public class Player {
             this.frames.add(new ThreeLaunchesFrame());
         }
 
+        LOGGER.info(StringUtils.EMPTY);
         LOGGER.info("Initialise la frame " + getCurrentFrame() + " pour le joueur " + name + ", toutes les quilles sont debout");
     }
 

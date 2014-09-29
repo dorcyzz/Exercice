@@ -15,10 +15,10 @@ public interface ScoreCalculator {
     /**
      * Méthode permettant de calculer le score d'une frame.
      *
-     * @param frames la liste des frames de la partie
-     * @param frame  la frame à calculer
+     * @param frames       la liste des frames de la partie
+     * @param currentFrame la frame à calculer
      * @return un objet ScoreContainer contenant les informations sur le score de la frame
      */
-    public ScoreContainer calculate(List<Frame> frames, Frame frame);
+    public ScoreContainer calculate(List<Frame> frames, Frame currentFrame);
 
 }

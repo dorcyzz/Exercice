@@ -18,10 +18,10 @@ public abstract class StrikeScoreCalculator implements ScoreCalculator {
     /**
      * @see com.telemis.exercice.score.calculator.calculators.ScoreCalculator#calculate(java.util.List, com.telemis.exercice.game.frame.Frame)
      */
-    public ScoreContainer calculate(List<Frame> frames, Frame frame) {
-        ScoreContainer container = new ScoreContainer(frames.indexOf(frame) + 1);
+    public ScoreContainer calculate(List<Frame> frames, Frame currentFrame) {
+        ScoreContainer container = new ScoreContainer(frames.indexOf(currentFrame) + 1);
 
-        container.setFrameScore(calculateStrikeScore(container, frames, frame));
+        container.setFrameScore(calculateStrikeScore(container, frames, currentFrame));
 
         return container;
     }

@@ -28,9 +28,9 @@ public class SpareLastFrameScoreCalculator extends SpareScoreCalculator {
     /**
      * @see com.telemis.exercice.score.calculator.calculators.ScoreCalculator#calculate(java.util.List, com.telemis.exercice.game.frame.Frame)
      */
-    public ScoreContainer calculate(List<Frame> frames, Frame frame) {
+    public ScoreContainer calculate(List<Frame> frames, Frame currentFrame) {
         ScoreCalculator scoreCalculator = ScoreCalculatorFactory.createScoreCalculator(ScoreCalculatorType.NORMAL);
-        ScoreContainer container = scoreCalculator.calculate(frames, frame);
+        ScoreContainer container = scoreCalculator.calculate(frames, currentFrame);
 
         completeRepresentation(container);
 
@@ -50,6 +50,5 @@ public class SpareLastFrameScoreCalculator extends SpareScoreCalculator {
                 break;
             }
         }
-
     }
 }

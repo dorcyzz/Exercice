@@ -20,7 +20,7 @@ import java.util.Map;
  * <p/>
  * Classe utilitaire gérant le calcul et l'affichage du score.
  */
-public class ScoreManager {
+public final class ScoreManager {
 
     private static final Logger LOGGER = Logger.getLogger(ScoreManager.class);
 
@@ -82,10 +82,14 @@ public class ScoreManager {
 
         for (ScoreContainer container : scoreHistory) {
             LOGGER.info("Frame " + container.getFrameNumber());
+
             List<String> lancersScores = container.getLancersScores();
             LOGGER.info(lancersScores.get(0) + " | " + lancersScores.get(1) + " | " + lancersScores.get(2)
-                    + ((lancersScores.size() == 4) ? " | " + lancersScores.get(3) : StringUtils.EMPTY));
+                    + ((lancersScores.size() >= 4) ? " | " + lancersScores.get(3) : StringUtils.EMPTY)
+                    + ((lancersScores.size() == 5) ? " | " + lancersScores.get(4) : StringUtils.EMPTY));
+
             LOGGER.info("Frame score = " + container.getFrameScore() + " (total score = " + (totalScore += container.getFrameScore()) + ")");
+
             LOGGER.info(StringUtils.EMPTY);
         }
     }

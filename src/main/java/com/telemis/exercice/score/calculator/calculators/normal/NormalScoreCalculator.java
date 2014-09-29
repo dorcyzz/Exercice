@@ -28,11 +28,11 @@ public class NormalScoreCalculator implements ScoreCalculator {
     /**
      * @see com.telemis.exercice.score.calculator.calculators.ScoreCalculator#calculate(java.util.List, com.telemis.exercice.game.frame.Frame)
      */
-    public ScoreContainer calculate(List<Frame> frames, Frame frame) {
-        ScoreContainer container = new ScoreContainer(frames.indexOf(frame) + 1);
+    public ScoreContainer calculate(List<Frame> frames, Frame currentFrame) {
+        ScoreContainer container = new ScoreContainer(frames.indexOf(currentFrame) + 1);
         int frameScore = 0;
 
-        for (Launch launch : frame.getLaunches()) {
+        for (Launch launch : currentFrame.getLaunches()) {
             final int fallenPins = launch.getFallenPins();
             frameScore += fallenPins;
             container.getLancersScores().add(Integer.toString(fallenPins));

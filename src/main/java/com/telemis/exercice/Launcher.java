@@ -4,6 +4,7 @@ import com.telemis.exercice.game.Player;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.score.ScoreContainer;
 import com.telemis.exercice.score.ScoreManager;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class Launcher {
     private static final Random random = new Random();
 
     public static void main(String[] args) {
-        // playScenario1();
+        //playScenario1();
         //playScenario2();
         playScenario3();
     }
@@ -50,6 +51,7 @@ public class Launcher {
         player1.launch(1);
 
         List<ScoreContainer> scoreJoueur1 = ScoreManager.calculer(player1.getFrames());
+        LOGGER.info(StringUtils.EMPTY);
         ScoreManager.displayScore(scoreJoueur1);
     }
 
@@ -80,6 +82,7 @@ public class Launcher {
         player2.launch(3);
 
         List<ScoreContainer> scoreJoueur2 = ScoreManager.calculer(player2.getFrames());
+        LOGGER.info(StringUtils.EMPTY);
         ScoreManager.displayScore(scoreJoueur2);
     }
 
@@ -89,6 +92,7 @@ public class Launcher {
         Player player3 = new Player("Joueur 3");
 
         for (int i = 1; i < 6; ++i) {
+            LOGGER.info(StringUtils.EMPTY);
             LOGGER.info("FRAME " + i);
 
             player1.initializeNewFrame();
@@ -111,6 +115,7 @@ public class Launcher {
         List<ScoreContainer> scoreJoueur2 = ScoreManager.calculer(player2.getFrames());
         List<ScoreContainer> scoreJoueur3 = ScoreManager.calculer(player3.getFrames());
 
+        LOGGER.info(StringUtils.EMPTY);
         LOGGER.info("Score joueur1");
         ScoreManager.displayScore(scoreJoueur1);
         LOGGER.info("Score joueur2");
@@ -120,6 +125,6 @@ public class Launcher {
     }
 
     private static int generateRandomlyFallenPinsNumber(int borneSuperieure) {
-        return random.nextInt(borneSuperieure);
+        return random.nextInt(borneSuperieure + 1);
     }
 }

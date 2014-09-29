@@ -1,8 +1,8 @@
 package com.telemis.exercice.score.calculator.calculators.strike;
 
-import com.telemis.exercice.game.Launch;
 import com.telemis.exercice.game.frame.Frame;
 import com.telemis.exercice.score.ScoreContainer;
+import com.telemis.exercice.score.calculator.calculators.utils.SpecialNormalScoreUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -24,27 +24,11 @@ public class StrikeNormalFrameScoreCalculator extends StrikeScoreCalculator {
     }
 
     int calculateStrikeScore(ScoreContainer container, List<Frame> frames, Frame currentFrame) {
-        int launch = 0;
-        int strikeScore = currentFrame.getLaunches().get(0).getFallenPins();
-
         List<Frame> framesFromCurrentFrame = frames.subList(frames.indexOf(currentFrame) + 1, frames.size());
 
         completeRepresentation(container);
 
-        for (Frame frame : framesFromCurrentFrame) {
-            List<Launch> launches = frame.getLaunches();
-
-            for (Launch lancer : launches) {
-                strikeScore += lancer.getFallenPins();
-                ++launch;
-
-                if (launch >= 3) {
-                    return strikeScore;
-                }
-            }
-        }
-
-        return strikeScore;
+        return SpecialNormalScoreUtils.calculateScoreInNextFramesPart(framesFromCurrentFrame, Frame.TOTAL_NUMBER_OF_PINS, 3);
     }
 
     private void completeRepresentation(ScoreContainer container) {
